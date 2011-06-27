@@ -1,0 +1,27 @@
+#timerText {
+	font-size: 500px; display: block; margin-left: auto; margin-right: auto; width: 100%; text-align:center; margin-top: 40px;
+}
+
+#timerBarContainer {
+	margin-left: auto; margin-right: auto; width: 1300; height: 20px; background: #dddddd; position: relative; border-left-style: solid; border-right-style: solid;
+}
+
+#timerBar  {
+	width: 0; background: green; position: absolute;
+}
+
+#buttonContainer {
+	display: block; margin-left: auto; margin-right: auto; width: 1300; text-align:center; margin-top: 100px;
+}
+
+#startStopButton {
+	font-size: 72px;
+}
+
+.buttonDescription {
+	font-size: 12px;
+}
+
+#presentationModeContainer {
+	position: absolute; bottom: 5px; right: 5px;
+}
