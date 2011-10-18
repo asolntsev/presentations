@@ -1,0 +1,14 @@
+Just Do It:
+http://www.thehackerchickblog.com/2010/02/just-do-it-quick-intro-to-agiles.html
+
+
+Extreme programming:
+http://en.wikipedia.org/wiki/Extreme_Programming
+
+Agile like teenage sex: http://www.thehackerchickblog.com/2008/11/deep-agile-ya-know-like-teenage-sex.html
+
+
+Что стоит сказать:
+1. Идея: Леон киллер говорил, что лучшее оружие - это нож: можно подойти близко к клиенту. Провести аналогию с аджайлом (программер говорит напрямую с клиентом без всей этой цепочки с продукт менеджеров, архитекторов и т.д.)
+2. Чак Норрис не ходит на охоту - автоматические тесты.
+3. 
