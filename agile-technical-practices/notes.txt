@@ -11,4 +11,34 @@ Agile like teenage sex: http://www.thehackerchickblog.com/2008/11/deep-agile-ya-
 Что стоит сказать:
 1. Идея: Леон киллер говорил, что лучшее оружие - это нож: можно подойти близко к клиенту. Провести аналогию с аджайлом (программер говорит напрямую с клиентом без всей этой цепочки с продукт менеджеров, архитекторов и т.д.)
 2. Чак Норрис не ходит на охоту - автоматические тесты.
-3. 
+
+
+По Agile:
+1. Максимально простой проект: простой чекаут, быстрая сборка, быстрый запуск. См. Launcher
+2. Делать всё маленькими шагами, на каждом шаге делать максимально простое решение. См. класс Words (в массиве, а не в базе).
+3. Из названий тест-кейсов должна складываться история (документация). Попробовать привести пример.
+4. Названия тест-кейсов могли бы маппиться на таски и на коммиты.
+
+HangmanSpec:
+  @Test
+  public void guessLetterByClickingLetter() {
+    getElement(By.xpath("//*[@letter='О']")).click();
+    waitFor(By.xpath("//*[@letter='О']"), hasClass("used"));
+
+    getElement(By.xpath("//*[@letter='Б']")).click();
+    waitFor(By.xpath("//*[@letter='Б']"), hasClass("nonused"));
+  }
+
+  @Test
+  public void successfulGame() {
+    getElement(By.xpath("//*[@letter='О']")).click();
+    getElement(By.xpath("//*[@letter='З']")).click();
+    getElement(By.xpath("//*[@letter='Д']")).click();
+    getElement(By.xpath("//*[@letter='Г']")).click();
+    getElement(By.xpath("//*[@letter='В']")).click();
+    getElement(By.xpath("//*[@letter='Ь']")).click();
+    waitFor(By.id("startGame"), visible);
+    assertElement(By.id("gameWin"), visible);
+    assertElement(By.id("wordInWork"), hasText("гвоздь"));
+  }
+
