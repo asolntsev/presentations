@@ -128,6 +128,7 @@
 				<section>
 					<h2>План на сегодня</h2>
           <ul class="big">
+            <li>Что такое архитектура?</li>
             <li>Подборка чозанахов</li>
             <li>Выводы</li>
           </ul>
@@ -343,22 +344,106 @@ public void configure() {
           </section>
         </section>
 				
-				<section>
-					<h2>Выводы</h2>
-          <span class="big">
-            <span class="fragment">Архитектура зависит от кода!</span><br/>
-            <span class="fragment">Картинка не совпадает с реальностью</span>
-          </span>
-				</section>
 
-				<section>
-					<h2>Советы</h2>
-          <span class="big">
-            <blockquote class="fragment">Тот, кто подметает, имеет право выбирать веник!</blockquote>
-            <span class="fragment"> Архитекторы: спрашивайте фидбэк!<br/></span>
-            <span class="fragment"> Разработчик: давайте фидбэк!<br/></span>
-          </span>
-				</section>
+        <section>
+          <section>
+            <h2>XML интеграции</h2>
+            <span>
+              <pre><code contenteditable class="xml">&lt;NotifyMPCharacteristics>
+  &lt;HeaderEnergyDocument>
+    &lt;Identification>1256953732&lt;/Identification>
+    &lt;DocumentType listAgencyIdentifier="86">DT01&lt;/DocumentType>
+    &lt;Creation>2012-04-17T09:50:36.467+03:00&lt;/Creation>
+
+    &lt;SenderEnergyParty>
+      &lt;Identification scheme="86">38ZXY-001-Y&lt;/Identification>
+      &lt;Role listAgencyIdentifier="86">MAT&lt;/Role>
+      &lt;Name>Nimi&lt;/Name>
+    &lt;/SenderEnergyParty>
+  &lt;/HeaderEnergyDocument>
+
+  &lt;PayloadMasterDataMPEvent>
+    &lt;MeteringPointDomainLocation>
+      &lt;Identification scheme="5">kohustuslik väli&lt;/Identification>
+    &lt;/MeteringPointDomainLocation>
+    &lt;Identification scheme="DPO">38ZEE-00357070-N&lt;/Identification>
+
+    &lt;CustomData>
+      ...
+    &lt;/CustomData>
+  &lt;/PayloadMasterDataMPEvent>
+&lt;/NotifyMPCharacteristics></code></pre>
+            </span>
+          </section>
+          <section>
+            <h2>Стандартный XML:</h2>
+            <ul class="medium">
+              <li class="fragment">Содержит лишнее</li>
+              <li class="fragment">не содержит нужного</li>
+            </ul>
+            <br/>
+            <br/>
+            <br/>
+            <h2 class="fragment">Выводы</h2>
+            <ul class="medium">
+              <li class="fragment">Не берите "стандартный" XML</li>
+              <li class="fragment">Если взяли - смело режьте</li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Выбор инструментов</h2>
+            <span class="big">
+              <span>Теория ограничений</span><br/>
+              <img class="fragment center" width="800px" src="img/process1.png"/>
+            </span>
+          </section>
+          <section>
+            <h2>Выбор инструментов</h2>
+            <span class="big">
+              <span>Процесс разработки</span><br/>
+              <img class="fragment center" width="800px" src="img/process2.png"/>
+            </span>
+          </section>
+          <section>
+            <h2>Выбор инструментов</h2>
+            <span class="big">
+              <span class="fragment">Реальный процесс</span><br/>
+              <img class="fragment center" width="800px" src="img/process3.png"/>
+            </span>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Выводы</h2>
+            <span class="big">
+              <span class="fragment">Архитектура должна строиться</span><br/>
+              <span class="fragment">вокруг бизнеса</span><br/>
+              <span class="fragment">а не инструментов</span><br/>
+            </span>
+          </section>
+
+          <section>
+            <h2>Выводы</h2>
+            <span class="big">
+              <span class="fragment">Не доверяйте тем, кто якобы знает ваш бизнес лучше вас</span><br/><br/>
+              <span class="fragment">Найдите того, кто поможет вам понять свой бизнес.</span><br/>
+              <span class="fragment">И улучшить!</span>
+            </span>
+          </section>
+
+          <section>
+            <h2>Советы</h2>
+            <span class="big">
+              <blockquote class="fragment">Тот, кто подметает, имеет право выбирать веник!</blockquote>
+              <span class="fragment"> Архитекторы: спрашивайте фидбэк!<br/></span>
+              <span class="fragment"> Разработчик: давайте фидбэк!<br/></span>
+            </span>
+          </section>
+        </section>
 
 				<section>
 					<h4>Спасибо, чо</h4>
