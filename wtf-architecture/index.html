@@ -66,7 +66,7 @@
         position: absolute;
         maring-left: auto;
         maring-right: auto;
-        top: 5%;
+        top: 10%;
       }
 
       .smaller {
@@ -75,6 +75,16 @@
 
       .right {
         text-align: right;
+      }
+
+      .reveal pre {
+        margin: 0;
+        width: 100%;
+      }
+
+      pre code {
+        color: white;
+        font-size: 150%;
       }
     </style>
 		<script>
@@ -116,9 +126,6 @@
 					<h3>Обо мне</h3>
           <span class="big">
           10 лет в бизнесе <br/>
-          Senior developer <br/>
-          Enterprise software <br/>
-          Oracle, Java, Spring, ESB, MQ, <br/>BPEL, BRMS, KPI, ...
           </span>
           <div class="fragment centered-block">
             <img src="img/hersonissos.jpg" width="800px"/>
@@ -132,6 +139,51 @@
             <li>Подборка чозанахов</li>
             <li>Выводы</li>
           </ul>
+				</section>
+
+				<section>
+          <section>
+            <h2>Что такое архитектура</h2>
+            <div class="fragment centered-block">
+              <img src="img/architecture-01.png" width="800px"/>
+            </div>
+          </section>
+          <section>
+            <h2>Что такое архитектура</h2>
+            <div class="centered-block">
+              <img src="img/architecture-02.png" width="800px"/>
+            </div>
+          </section>
+          <section>
+            <h2>Что такое архитектура</h2>
+            <div class="centered-block">
+              <img src="img/architecture-03.png" width="800px"/>
+            </div>
+          </section>
+          <section>
+            <h2>Что такое архитектура</h2>
+            <div class="centered-block">
+              <img src="img/architecture-04.png" width="800px"/>
+            </div>
+          </section>
+          <section>
+            <h2>Что такое архитектура</h2>
+            <div class="centered-block">
+              <img src="img/architecture-05.png" width="800px"/>
+            </div>
+          </section>
+          <section>
+            <h2>Что такое архитектура</h2>
+            <div class="centered-block">
+              <img src="img/architecture-06.png" width="800px"/>
+            </div>
+          </section>
+          <section>
+            <h2>Что такое архитектура</h2>
+            <div class="centered-block">
+              <img src="img/architecture-07.png" width="800px"/>
+            </div>
+          </section>
 				</section>
 
 				<section>
@@ -149,7 +201,7 @@
             <ul class="medium small-space">
               <li class="fragment"><p>Oracle, F5, WebLogic и пр. - ЗАЧЕМ?</p></li>
               <li class="fragment"><p>&lt; 1 млн. клиентов</p></li>
-              <li class="fragment"><p>&lt; 1 млрд закзов</p></li>
+              <li class="fragment"><p>&lt; 1 млрд заказов</p></li>
             </ul>
 
             <br/>
@@ -172,8 +224,6 @@
               <li class="fragment">Бизнес-правила компании</li>
               <li class="fragment">Хранение, исполнение, тестирование правил</li>
               <li class="fragment">Редактирование правил</li>
-              <li class="fragment">Для не-программистов!</li>
-              <li class="fragment">Изменение вне релиза</li>
             </ul>
             <pre class="fragment medium-space"><code class="language-java">
   rule "Age verification"
@@ -181,7 +231,7 @@
     Borrower(age < 18)
     $loanApp : LoanApplication()
   then
-    $loanApp.addFeedbackMessage(FeedbackMessages.MIN_AGE);
+    $loanApp.addFeedbackMessage(MIN_AGE);
   end
             </code></pre>
 
@@ -214,8 +264,8 @@
     $kpiEvent: CKPIEvent(eventTypeID==503)
   then
     $kpiEvent.incCounter( 1,
-                          $kpiEvent.getCustomerID(),
-                          $kpiEvent.getOrderReadyDate());
+                 $kpiEvent.getCustomerID(),
+                 $kpiEvent.getOrderReadyDate());
             </code></pre>
           </section>
           <section>
@@ -231,15 +281,15 @@ when
   $kpiEvent: CKPIEvent(eventTypeID==503)
 then
   $kpiEvent.incCounter( 1,
-                        $kpiEvent.getCustomerID(),
-                        $kpiEvent.getOrderReadyDate());
+               $kpiEvent.getCustomerID(),
+               $kpiEvent.getOrderReadyDate());
 
-  $kpiEvent.addNotification(new CollectionsNotification()
-    .setCollection("DAY_SUMMARY", "CUSTOMER", $kpiEvent.getCustomerID())
-    .setCollectionKey($kpiEvent.getCustomerID() + "_completed_orders_%EVENT_DATE%")
-    .setKpiDefinitionID(1), $kpiEvent.getCustomerID())
+  $kpiEvent.addNotification(new Notification()
+    .setCollection("DAY_SUMMARY", ...)
+    .setCollectionKey( ... )
+    .setKpiDefinitionID( ... )
     .setSummaryPeriod("DAY")
-    .setAggregationTime($kpiEvent.getOrderReadyDate())
+    .setAggregationTime( ... )
     .setEventType("completed_orders")
   );
             </code></pre>
