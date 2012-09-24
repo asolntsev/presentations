@@ -99,9 +99,15 @@
         position: absolute;
         right: 0;
       }
-      .bottom {
+
+      .bottom60 {
         position: absolute;
         bottom: 60px;
+      }
+
+      .bottom {
+        position: absolute;
+        bottom: 0;
       }
 
       .bordered {
@@ -161,11 +167,7 @@
             <li>Подборка чозанахов</li>
             <li>Выводы</li>
           </ul>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <h4 class="fragment rotate45 bottom right bordered">Кое-где придётся подумать!</h4>
+          <h4 class="fragment rotate45 bottom60 right bordered">Кое-где придётся подумать!</h4>
 				</section>
 
 				<section>
@@ -217,8 +219,8 @@
 					<section>
 						<h2>База данных Oracle</h2>
             <ul class="medium medium-space">
+              <li class="fragment"><p>Зарплата <strong>4000 EEK</strong></p></li>
               <li class="fragment"><p>Лицензия стоит <strong>40 000 $</strong></p></li>
-              <li class="fragment"><p>Зарплата программиста <strong>4000 EEK</strong></p></li>
               <li class="fragment"><p>Сколько в Эстонии коров?</p></li>
             </ul>
 					</section>
@@ -237,7 +239,7 @@
             <p class="fragment">
               <img src="img/tomcat-and-mysql.jpg" width="400px"/>
             </p>
-            <h4 class="fragment rotate45 bottom right bordered">Tomcat рулит!</h4>
+            <h4 class="fragment rotate45 bottom60 right bordered">Tomcat рулит!</h4>
 					</section>
 				</section>
 
@@ -374,9 +376,11 @@ context.addRoutes(new RouteBuilder() {
               Почему не Camel?
               <blockquote>В ServiceMix <b>можно</b> запускать много потоков, много инстансов одного компонента.</blockquote>
             </div>
-            <p class="right"><a href="http://www.devclub.eu/2009/04/11/jevgeni-holodkov-apache-servicemix/">ServiceMix @ DevClub</a></p>
             <br/>
-            <p class="right"><a href="http://www.devclub.eu/2009/04/11/anton-arhipov-apache-camel/">Camel @ DevClub</a></p>
+            <br/>
+            <p class="left"><a href="http://www.devclub.eu/2009/04/11/jevgeni-holodkov-apache-servicemix/">ServiceMix @ DevClub</a></p>
+            <p class="left"><a href="http://www.devclub.eu/2009/04/11/anton-arhipov-apache-camel/">Camel @ DevClub</a></p>
+            <h4 class="fragment rotate45 bottom60 right bordered">А нужно ли?</h4>
           </section>
           <section>
             <h2>Servicemix</h2>
@@ -441,7 +445,7 @@ public void configure() {
             <br/>
             <p style="text-align: left; display: inline-block; padding-left: 170px;">
               - passwords<br/>
-              + encrypt_password()<br/>
+              <span class="fragment">+ encrypt_password()</span><br/>
               <b class="fragment">+ decrypt_password()</b>
             </p>
 
@@ -469,6 +473,13 @@ public void configure() {
               <img src="img/cis-03.png" width="800px"/>
             </div>
           </section>
+          <section>
+            <h2>Мега-SOA</h2>
+            <div class="centered-block">
+              <img src="img/cis-04.png" width="800px"/>
+            </div>
+            <p class="fragment bottom right"><img src="img/face_lol.jpg" class="center"/></p>
+          </section>
         </section>
 
         <section>
@@ -489,9 +500,17 @@ public void configure() {
           <section>
             <h2>Выбор инструментов</h2>
             <span class="big">
-              <span class="fragment">Реальный процесс</span><br/>
               <img class="fragment center" width="800px" src="img/process3.png"/>
             </span>
+            <br/><br/>
+            <h4 class="fragment bottom right bordered">Одно улучшит - другие ухудшит</h4>
+          </section>
+          <section>
+            <h2>Выбор инструментов</h2>
+            <img class="center" src="img/220px-Leon-poster.jpg"/>
+            <br/>
+            <h4 class="fragment">Винтовка для новичков</h4>
+            <h4 class="fragment">Лучшее оружие - нож</h4>
           </section>
         </section>
 
@@ -508,8 +527,17 @@ public void configure() {
           <section>
             <h2>Выводы</h2>
             <span class="big">
-              <span class="fragment">Не доверяйте тем, кто якобы знает ваш бизнес лучше вас</span><br/><br/>
-              <span class="fragment">Найдите того, кто поможет вам понять свой бизнес.</span><br/>
+              <div class="fragment">
+                Не доверяйте тем, кто якобы знает ваш бизнес лучше вас
+                <img class="center" src="img/smart-ass.png"/>
+              </div>
+            </span>
+          </section>
+
+          <section>
+            <h2>Выводы</h2>
+            <span class="big">
+              <span class="fragment">Найдите того, кто поможет вам понять свой бизнес.</span><br/><br/>
               <span class="fragment">И улучшить!</span>
             </span>
           </section>
@@ -517,10 +545,17 @@ public void configure() {
           <section>
             <h2>Советы</h2>
             <span class="big">
-              <blockquote class="fragment">Тот, кто подметает, имеет право выбирать веник!</blockquote>
-              <span class="fragment"> Архитекторы: спрашивайте фидбэк!<br/></span>
-              <span class="fragment"> Разработчик: давайте фидбэк!<br/></span>
+              <blockquote>Тот, кто подметает, имеет право выбирать веник!</blockquote>
             </span>
+          </section>
+          <section>
+            <h2>Советы</h2>
+            <span class="big">
+              <img class="fragment center" src="img/hierarchy.png" />
+            </span>
+            <div class="fragment medium" style="position: absolute; left: 0; top: 50px; text-align: left; width: 100px;"> Архитектор: спрашивай фидбэк!</div>
+            <div class="fragment medium" style="position: absolute; right: 0; top: 50px; text-align: right; width: 100px;"> Разработчик: давай фидбэк!</div>
+            <h4 class="fragment rotate45 bottom right bordered">Двухсторонняя связь!</h4>
           </section>
         </section>
 
