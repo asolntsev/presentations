@@ -86,6 +86,28 @@
         color: white;
         font-size: 150%;
       }
+
+      .rotate45 {
+        -webkit-transform: rotate( -45deg );
+        -moz-transform: rotate( -45deg );
+        -ms-transform: rotate( -45deg );
+        -o-transform: rotate( -45deg );
+        transform: rotate( -45deg );
+      }
+
+      .right {
+        position: absolute;
+        right: 0;
+      }
+      .bottom {
+        position: absolute;
+        bottom: 60px;
+      }
+
+      .bordered {
+        border: solid;
+        padding: 2%;
+      }
     </style>
 		<script>
 			// If the query includes 'print-pdf' we'll use the PDF print sheet
@@ -139,6 +161,11 @@
             <li>Подборка чозанахов</li>
             <li>Выводы</li>
           </ul>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <h4 class="fragment rotate45 bottom right bordered">Кое-где придётся подумать!</h4>
 				</section>
 
 				<section>
@@ -210,6 +237,7 @@
             <p class="fragment">
               <img src="img/tomcat-and-mysql.jpg" width="400px"/>
             </p>
+            <h4 class="fragment rotate45 bottom right bordered">Tomcat рулит!</h4>
 					</section>
 				</section>
 
@@ -306,7 +334,7 @@ then
               </ul>
             </p>
             <p class="fragment">То же самое проще сделать в коде!</p>
-            <p class="fragment medium-space"><img src="img/face_lol.jpg" class="center"/></p>
+            <p class="fragment bottom right"><img src="img/face_lol.jpg" class="center"/></p>
           </section>
         </section>
 
@@ -337,15 +365,17 @@ then
             <pre><code contenteditable class="java">
 context.addRoutes(new RouteBuilder() {
   public void configure() {
-    from("test-jms:queue:test.queue").to("file://test");
+    from("test-jms:queue:test.queue")
+     .to("file://test");
   }
 });
             </code></pre>
             <div class="fragment">
               Почему не Camel?
-              <blockquote>В ServiceMix можно запускать много потоков, много инстансов одного компонента.</blockquote>
+              <blockquote>В ServiceMix <b>можно</b> запускать много потоков, много инстансов одного компонента.</blockquote>
             </div>
             <p class="right"><a href="http://www.devclub.eu/2009/04/11/jevgeni-holodkov-apache-servicemix/">ServiceMix @ DevClub</a></p>
+            <br/>
             <p class="right"><a href="http://www.devclub.eu/2009/04/11/anton-arhipov-apache-camel/">Camel @ DevClub</a></p>
           </section>
           <section>
@@ -368,11 +398,10 @@ public void configure() {
               </tr>
               <tr>
                 <td>
-                  Можно запускать:
+                  <b>Можно</b> запускать:
                   <ul>
                     <li>много потоков</li>
                     <li>много экземпляров</li>
-                    <li>много процессов</li>
                   </ul>
                 </td>
                 <td>
@@ -386,14 +415,41 @@ public void configure() {
           <section>
             <h2>В чём юмор:</h2>
             <ul class="medium">
-              <li class="fragment">Каждый процесс в отдельном JVM.</li>
               <li class="fragment">Один инстанс каждого компонента</li>
             </ul>
             <img src="img/servicemix_jbi_message_flow_diagram4.png" height="300px"/>
             <img src="img/lol.png" align="right" class="fragment" style="position: absolute; right: 100px; top: 430px;"/>
           </section>
         </section>
-				
+
+
+
+
+        <section>
+          <section>
+            <h2>Security</h2>
+            <div class="centered-block">
+              <img src="img/passwords.png"/>
+            </div>
+            <br/>
+            <p style="text-align: left; display: inline-block; padding-left: 50px;">
+              + persons<br/>
+              + addresses
+            </p>
+            <br/>
+            <br/>
+            <br/>
+            <p style="text-align: left; display: inline-block; padding-left: 170px;">
+              - passwords<br/>
+              + encrypt_password()<br/>
+              <b class="fragment">+ decrypt_password()</b>
+            </p>
+
+            <p class="fragment bottom right"><img src="img/face_lol.jpg" class="center"/></p>
+          </section>
+        </section>
+
+
 
         <section>
           <section>
