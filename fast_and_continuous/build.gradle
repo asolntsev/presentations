@@ -1,0 +1,26 @@
+apply plugin: 'java'
+
+compileJava.options.debugOptions.debugLevel = "source,lines,vars"
+sourceCompatibility = 1.7
+targetCompatibility = 1.7
+
+defaultTasks 'clean', 'libs', 'test'
+
+repositories {
+  mavenCentral()
+}
+
+dependencies {
+  compile 'junit:junit:4.10'
+}
+
+task libs(type: Sync) {
+  from configurations.compile
+  from configurations.runtime
+  into "$buildDir/lib"
+}
+
+test {
+  exclude 'eu/devclub/search/uitest/**'
+  testLogging.showStandardStreams = true
+}
