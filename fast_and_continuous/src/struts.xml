@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+    "http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+  <bean type="com.opensymphony.xwork2.ObjectFactory" name="custom-guice" class="eu.devclub.search.StrutsGuiceObjectFactory" />
+  <constant name="struts.objectFactory" value="custom-guice" />
+
+  <constant name="struts.convention.classes.reload" value="true"/>
+  <constant name="struts.i18n.encoding" value="UTF-8"/>
+  <constant name="struts.locale" value="en_EN"/>
+  <constant name="struts.custom.i18n.resources" value="messages" />
+  <constant name="struts.action.extension" value=""/>
+  <constant name="struts.action.excludePattern" value="/stylesheets/.*,/images/.*,/javascripts/.*,/swf/.*,/favicon.ico,/struts/.*"/>
+  <constant name="struts.ui.theme" value="xhtml"/>
+  <constant name="struts.el.throwExceptionOnFailure" value="true"/>
+
+  <constant name="struts.convention.exclude.parentClassLoader" value="false"/>
+  <constant name="struts.convention.package.locators.basePackage" value="eu.devclub.search"/>
+  <constant name="struts.convention.package.locators" value="web"/>
+  <constant name="struts.convention.result.path" value="/WEB-INF/jsp/"/>
+  <constant name="struts.convention.default.parent.package" value="default"/>
+
+  <package name="default" extends="struts-default">
+  </package>
+</struts>
