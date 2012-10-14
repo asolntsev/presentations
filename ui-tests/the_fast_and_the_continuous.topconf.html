@@ -47,7 +47,7 @@
 
       .author {
         text-align: right;
-        padding-top: 120pt;
+        padding-top: 50pt;
       }
       .author span {
         display: block;
@@ -133,14 +133,15 @@
 			
 			<div class="slides">
 				<section>
-					<h1>The Fast and the Continuous</h1>
+					<h2>The Fast and the Continuous</h2>
           <!--<img src="img/rts_context_default.png" style="border: none;"/><br/>-->
           <!--<img src="http://carsmedia.ign.com/cars/image/article/713/713047/the-fast-and-the-furious-tokyo-drift-car-of-the-day-hans-s15-20060616025826178.jpg" style="border: none;"/><br/>-->
           <!--<img src="http://1.bp.blogspot.com/-mNsA80eVY9w/UAr2WvF0-XI/AAAAAAAAAC8/qYJVTqIuWHQ/s1600/Fast+and+Furious+Cars+743+(2).jpg" style="border: none;"/><br/>-->
-          <img src="/home/andrei/Pictures/fast_and_furious.jpg" style="border: none;"/><br/>
+          <br/>
+          <img src="/home/andrei/Pictures/fast_and_furious.jpg" style="border: none;"/>
           <div class="author">
             <span>Andrei Solntsev</span>
-            <a href="http://www.codeborne.com"><span>Codeborne OÜ</span></a>
+            <a href="http://www.codeborne.com"><span>Codeborne</span></a>
           </div>
 
           <div class="company">
@@ -153,12 +154,23 @@
 				
 				<section>
 					<h3>About me</h3>
-          <span class="big">
-          10+ development<br/><br/>
-          DevClub.eu<br/>
-          jug.lv<br/>
-          Agile Saturday<br/>
-          </span>
+          <span class="big">Software developer</span><br/>10+ years
+
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+
+          <div style="text-align: left; width: 90%;" class="fragment">
+            <!--<img src="http://www.devclub.eu/wp-content/uploads/2012/07/devclub_logo_320x240_transparent.png" style="border: none; width: 200px;"/><br/>-->
+            <span class="big">DevClub.eu</span><br/>organizer
+          </div>
+
+          <div style="text-align: right; width: 90%;" class="fragment">
+            <!--<img src="http://www.ljplus.ru/img4/a/s/asolntsev/selenide.jpg" style="border: none; width: 200px"/><br/>-->
+            <span class="big">Selenide.org</span><br/>author
+          </div>
+
           <div class="fragment centered-block">
             <img src="img/hersonissos.jpg" width="800px"/>
           </div>
@@ -176,15 +188,40 @@
 
 				<section>
           <section>
-            <h2>Что такое архитектура</h2>
-            <div class="fragment centered-block">
-              <img src="img/architecture-01.png" width="800px"/>
-            </div>
+            <h2>100% test coverage</h2>
+            <table width="100%">
+              <tr>
+                <td class="fragment">
+                  <u>Tutorial:</u><br/><br/>
+                  <h4>100% is not possible.</h4>
+                  <h5>80% is good enough.</h5>
+                </td>
+                <td width="100px"></td>
+                <td class="fragment">
+                  <u>Bob Martin:</u><br/><br/>
+                  <h4><a href="http://cleancoder.posterous.com/100-test-coverage">100% is the goal!</a></h4>
+                  <h5>80%? Are your joking?</h5>
+                  <img src="img/bob_martin.png"/><br/><br/><br/>
+                </td>
+              </tr>
+            </table>
           </section>
           <section>
-            <h2>Что такое архитектура</h2>
-            <div class="centered-block">
-              <img src="img/architecture-02.png" width="800px"/>
+            <h2>100% Coverage</h2>
+
+            <h3>Should I test getters/setters?</h3>
+
+            <div class="centered-block" style="margin-top: 60px;">
+<pre class="fragment medium-space">
+<code class="language-java">
+  public String getFirstName() {
+    return firstName;
+  }
+
+  public void setFirstName(String firstName) {
+    this.lastName = firstName;
+  }
+</code></pre>
             </div>
           </section>
           <section>
