@@ -85,6 +85,7 @@
       pre code {
         color: white;
         font-size: 150%;
+        line-height: 120%;
       }
 
       .rotate45 {
@@ -183,7 +184,6 @@
             <li>Unit vs UI tests</li>
             <li>Demo</li>
           </ul>
-          <h4 class="fragment rotate45 bottom60 right bordered">Will have to think!</h4>
 				</section>
 
 				<section>
@@ -208,8 +208,37 @@
           </section>
           <section>
             <h2>100% Coverage</h2>
+            <ul class="big">
+              <li>100% Coverage is not enough!</li>
+              <li class="fragment">Unit-tests for getters?</li>
+            </ul>
+          </section>
 
-            <h3>Should I test getters/setters?</h3>
+          <section>
+            <h2>100% Coverage</h2>
+            <h3>is not enough!</h3>
+
+            <div class="centered-block" style="margin-top: 60px;">
+<pre class="fragment medium-space">
+<code class="language-java">
+  boolean validateEmail(String email) {
+    return "[a-z]+@[a-z]+\.[a-z]{2,4}".matches(email);
+  }
+</code></pre>
+
+<pre class="fragment medium-space">
+<code class="language-java">
+  @Test void emailValidation() {
+    assertTrue(
+      validateEmail("gmail@chuck.norris"));
+  }
+</code></pre>
+              <h4 class="fragment rotate45 bottom right bordered">100% coverage</h4>
+            </div>
+          </section>
+          <section>
+            <h2>Should I really test</h2>
+            <h3>getters/setters?</h3>
 
             <div class="centered-block" style="margin-top: 60px;">
 <pre class="fragment medium-space">
@@ -225,34 +254,25 @@
             </div>
           </section>
           <section>
-            <h2>Что такое архитектура</h2>
-            <div class="centered-block">
-              <img src="img/architecture-03.png" width="800px"/>
+            <h2>Should I really test</h2>
+            <h3>getters/setters?</h3>
+
+            <div class="centered-block" style="margin-top: 60px;">
+<pre class="fragment medium-space">
+<code class="language-java">
+  @Test public void testNames() {
+
+    Person chuck = new Person();
+    chuck.setFirstName("Chuck");
+    chuck.setLastName("Norris");
+
+    assertEquals("Chuck", chuck.getFirstName());
+    assertEquals("Norris", chuck.getLastName());
+  }
+
+</code></pre>
             </div>
-          </section>
-          <section>
-            <h2>Что такое архитектура</h2>
-            <div class="centered-block">
-              <img src="img/architecture-04.png" width="800px"/>
-            </div>
-          </section>
-          <section>
-            <h2>Что такое архитектура</h2>
-            <div class="centered-block">
-              <img src="img/architecture-05.png" width="800px"/>
-            </div>
-          </section>
-          <section>
-            <h2>Что такое архитектура</h2>
-            <div class="centered-block">
-              <img src="img/architecture-06.png" width="800px"/>
-            </div>
-          </section>
-          <section>
-            <h2>Что такое архитектура</h2>
-            <div class="centered-block">
-              <img src="img/architecture-07.png" width="800px"/>
-            </div>
+            <h4 class="fragment rotate45 bottom right bordered" style="padding-right: 70px; padding-left: 10px;">Overkill?</h4>
           </section>
 				</section>
 
