@@ -343,6 +343,20 @@
               </div>
             </span>
           </section>
+          <section>
+            <h2>Selenium + API = SELENIDE</h2>
+            <a href="http://github.com/codeborne/selenide">github.com/codeborne/selenide</a>
+            <pre class="medium-space">
+<code class="language-java">
+@Test
+public void userCanLogin() {
+  <b>open</b>("/login");
+  <b>setValue</b>(By.name("user.name"), "john");
+  <b>$</b>("#submit").click();
+  <b>$</b>("#menu", <b>shouldHave(text</b>("Hello, John!")));
+}
+</code></pre>
+          </section>
         </section>
 
 
