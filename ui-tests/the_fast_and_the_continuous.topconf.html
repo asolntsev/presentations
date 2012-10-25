@@ -115,6 +115,13 @@
         border: solid;
         padding: 2%;
       }
+
+      .corner-image {
+        position: absolute;
+        left: -200px;
+        bottom: -50px;
+        width: 300px;
+      }
     </style>
 		<script>
 			// If the query includes 'print-pdf' we'll use the PDF print sheet
@@ -264,382 +271,94 @@
 
     Person chuck = new Person();
     chuck.setFirstName("Chuck");
-    chuck.setLastName("Norris");
 
     assertEquals("Chuck", chuck.getFirstName());
-    assertEquals("Norris", chuck.getLastName());
   }
 
 </code></pre>
             </div>
             <h4 class="fragment rotate45 bottom right bordered" style="padding-right: 70px; padding-left: 10px;">Overkill?</h4>
           </section>
-				</section>
-
-				<section>
-					<section>
-            <h2>Мудрость</h2>
-            <span class="big">
-              <blockquote>Делай просто, <br/>насколько возможно. <br/><span class="fragment">Но не проще.</span></blockquote>
-            </span>
-
-            <p class="fragment bottom right"><img src="img/albert_yeyinshteyin.png"/></p>
-					</section>
-			  </section>
-
-				<section>
-					<section>
-						<h2>База данных Oracle</h2>
-            <ul class="medium medium-space">
-              <li class="fragment"><p>Зарплата <strong>4000 EEK</strong></p></li>
-              <li class="fragment"><p>Лицензия стоит <strong>40 000 $</strong></p></li>
-              <li class="fragment"><p>Сколько в Эстонии коров?</p></li>
-            </ul>
-					</section>
-
-					<section>
-						<h2>На эстонском рынке</h2>
-            <ul class="medium small-space">
-              <li class="fragment"><p>Oracle, F5, WebLogic и пр. - ЗАЧЕМ?</p></li>
-              <li class="fragment"><p>&lt; 1 млн. клиентов</p></li>
-              <li class="fragment"><p>&lt; 1 млрд заказов</p></li>
-            </ul>
-
-            <br/>
-            <br/>
-            <p class="fragment">ЛЕГКО справится: </p>
-            <p class="fragment">
-              <img src="img/tomcat-and-mysql.jpg" width="400px"/>
-            </p>
-            <h4 class="fragment rotate45 bottom60 right bordered">Tomcat рулит!</h4>
-					</section>
-				</section>
-
-
-
-
-
-        <section>
           <section>
-            <h2>Business Rules</h2>
+            <!--<h1>Compromise</h1>-->
+            <!--<h3>How to find compromise - not too much and and too few of tests?</h3>-->
+
+            <h2>How to find compromise:</h2>
+            <div class="big">
             <ul>
-              <li class="fragment">Бизнес-правила компании</li>
-              <li class="fragment">Хранение, исполнение, тестирование правил</li>
+              <li>Not too much, and</li>
+              <li class="fragment">not too few of tests?</li>
             </ul>
-            <pre class="fragment medium-space"><code class="language-java">
-  rule "Age verification"
-  when
-    Borrower(age < 18)
-    $loanApp : LoanApplication()
-  then
-    $loanApp.addFeedbackMessage(MIN_AGE);
-  end
-            </code></pre>
+            </div>
+          </section>
+				</section>
 
-            <a class="fragment" href="http://www.devclub.eu/2009/02/01/there-is-something-about-ilog/">iLog & Drools @ DevClub</a>
-          </section>
-          <section>
-            <h2>Business Rules</h2>
-            <img src="img/business-rules-1.png"/>
-          </section>
-          <section>
-            <h2>Business Rules</h2>
-            <pre><code contenteditable class="java">
-  rule “Closed subrequests"
-  when
-    $kpiEvent:CKPIEvent(eventTypeID==502)
-  then
-    $kpiEvent.addKPIDefinitionId(56);
-  end
-            </code></pre>
-          </section>
-          <section>
-            <h2>Business Rules</h2>
-            <img src="img/business-rules-2.png"/>
-          </section>
-          <section>
-            <h2>Business Rules</h2>
-            <pre><code contenteditable class="java">
-  rule "Order is completed"
-  when
-    $kpiEvent: CKPIEvent(eventTypeID==503)
-  then
-    $kpiEvent.incCounter( 1,
-                 $kpiEvent.getCustomerID(),
-                 $kpiEvent.getOrderReadyDate());
-            </code></pre>
-          </section>
-          <section>
-            <h2>Business Rules</h2>
-            <img src="img/business-rules-3.png"/>
-          </section>
-          <section>
-            <h2>Business Rules</h2>
-            <pre><code contenteditable class="java">
-rule "Order is completed"
 
-when
-  $kpiEvent: CKPIEvent(eventTypeID==503)
-then
-  $kpiEvent.incCounter( 1,
-               $kpiEvent.getCustomerID(),
-               $kpiEvent.getOrderReadyDate());
 
-  $kpiEvent.addNotification(new Notification()
-    .setCollection("DAY_SUMMARY", ...)
-    .setCollectionKey( ... )
-    .setKpiDefinitionID( ... )
-    .setSummaryPeriod("DAY")
-    .setAggregationTime( ... )
-    .setEventType("completed_orders")
-  );
-            </code></pre>
+				<section>
+					<section>
+						<h2>Testing pyramid</h2>
+            <img src="img/pyramide-agile.png" width="700px"/>
+					</section>
+					<section>
+						<h2>Testing pyramid</h2>
+            <img src="img/pyramide-fragile.png" width="700px"/>
+					</section>
+				</section>
+
+
+        <section>
+          <section>
+            <h2>Codeborne</h2>
+            <img src="img/pyramide-agile.png" class="corner-image"/>
+            <span class="big">
+              Developers write BOTH <br/>unit- and UI-tests<br/><br/>
+            </span>
           </section>
           <section>
-            <h2>В чём юмор:</h2>
-            <p class="fragment medium-space">Правила меняют только программеры.</p>
-            <p class="fragment">И только с релизом.</p>
-            <p class="fragment">
+            <h2>Codeborne</h2>
+            <span class="big">
               <ul>
-                <li class="fragment">Напоминаю, Business Rules:</li>
-                <li class="fragment">Для не-программистов!</li>
-                <li class="fragment">Изменение вне релиза</li>
+                <li>All tests are in same repo</li>
+                <li class="fragment">Write tests <u>like code</u></li>
+                <li class="fragment">Our religion is <u>clean code</u></li>
+                <li class="fragment">We need <u>concise API</u> for UI Tests</li>
               </ul>
-            </p>
-            <p class="fragment">То же самое проще сделать в коде!</p>
-            <p class="fragment bottom right"><img src="img/face_lol.jpg" class="center"/></p>
-          </section>
-        </section>
-
-
-
-
-
-
-        <section>
-          <section>
-            <h2>Servicemix</h2>
-            <img src="img/ServiceMix3.png" height="500px"/>
-          </section>
-          <section>
-            <h2>Servicemix</h2>
-            <img src="img/servicemix_jbi_message_flow_diagram4.png" height="500px"/>
-          </section>
-          <section>
-            <h2>Servicemix</h2>
-            <ul class="medium-space">
-              <li class="fragment">Высокий порог вхождения</li>
-              <li class="fragment">Нетривиальный деплоймент</li>
-              <li class="fragment">Геморройная отладка</li>
-            </ul>
-          </section>
-          <section>
-            <h2>Camel</h2>
-            <pre><code contenteditable class="java">
-context.addRoutes(new RouteBuilder() {
-  public void configure() {
-    from("test-jms:queue:test.queue")
-     .to("file://test");
-  }
-});
-            </code></pre>
-            <div class="fragment">
-              Почему не Camel?
-              <blockquote>В ServiceMix <b>можно</b> запускать много потоков, много инстансов одного компонента.</blockquote>
-            </div>
-            <br/>
-            <br/>
-            <p class="left"><a href="http://www.devclub.eu/2009/04/11/jevgeni-holodkov-apache-servicemix/">ServiceMix @ DevClub</a></p>
-            <p class="left"><a href="http://www.devclub.eu/2009/04/11/anton-arhipov-apache-camel/">Camel @ DevClub</a></p>
-            <h4 class="fragment rotate45 bottom60 right bordered">А нужно ли?</h4>
-          </section>
-          <section>
-            <h2>Servicemix</h2>
-            <table width="100%">
-              <tr>
-                <td>
-                  ServiceMix:
-                  <img src="img/servicemix_jbi_message_flow_diagram4.png" height="300px"/>
-                </td>
-                <td>
-                  Camel:
-            <pre><code contenteditable class="java">
-public void configure() {
-  from("jms:queue:test.queue")
-   .to("file://test");
-}
-            </code></pre>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <b>Можно</b> запускать:
-                  <ul>
-                    <li>много потоков</li>
-                    <li>много экземпляров</li>
-                  </ul>
-                </td>
-                <td>
-                  <ul>
-                    <li>Всё в одном потоке</li>
-                  </ul>
-                </td>
-              </tr>
-            </table>
-          </section>
-          <section>
-            <h2>В чём юмор:</h2>
-            <ul class="medium">
-              <li class="fragment">Один инстанс каждого компонента</li>
-            </ul>
-            <img src="img/servicemix_jbi_message_flow_diagram4.png" height="300px"/>
-            <img src="img/lol.png" align="right" class="fragment" style="position: absolute; right: 100px; top: 430px;"/>
-          </section>
-        </section>
-
-
-
-
-        <section>
-          <section>
-            <h2>Security</h2>
-            <div class="centered-block">
-              <img src="img/passwords.png"/>
-            </div>
-            <br/>
-            <p style="text-align: left; display: inline-block; padding-left: 50px;">
-              + persons<br/>
-              + addresses
-            </p>
-            <br/>
-            <br/>
-            <br/>
-            <p style="text-align: left; display: inline-block; padding-left: 170px;">
-              - passwords<br/>
-              <span class="fragment">+ encrypt_password()</span><br/>
-              <b class="fragment">+ decrypt_password()</b>
-            </p>
-
-            <p class="fragment bottom right"><img src="img/face_lol.jpg" class="center"/></p>
-          </section>
-        </section>
-
-
-        <section>
-          <section>
-            <h2>Мега-SOA</h2>
-            <div class="centered-block">
-              <img src="img/cis-01.png" width="800px"/>
-            </div>
-          </section>
-          <section>
-            <h2>Мега-SOA</h2>
-            <div class="centered-block">
-              <img src="img/cis-02.png" width="800px"/>
-            </div>
-          </section>
-          <section>
-            <h2>Мега-SOA</h2>
-            <div class="centered-block">
-              <img src="img/cis-03.png" width="800px"/>
-            </div>
-          </section>
-          <section>
-            <h2>Мега-SOA</h2>
-            <div class="centered-block">
-              <img src="img/cis-04.png" width="800px"/>
-            </div>
-            <p class="fragment bottom right"><img src="img/face_lol.jpg" class="center"/></p>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h2>Выбор инструментов</h2>
-            <span class="big">
-              <span>Теория ограничений</span><br/>
-              <img class="fragment center" width="800px" src="img/process1.png"/>
             </span>
           </section>
           <section>
-            <h2>Выбор инструментов</h2>
+            <h2>Codeborne</h2>
             <span class="big">
-              <span>Процесс разработки</span><br/>
-              <img class="fragment center" width="800px" src="img/process2.png"/>
-            </span>
-          </section>
-          <section>
-            <h2>Выбор инструментов</h2>
-            <span class="big">
-              <img class="fragment center" width="800px" src="img/process3.png"/>
-            </span>
-            <br/><br/>
-            <h4 class="fragment bottom right bordered">Одно улучшит - другие ухудшит</h4>
-          </section>
-          <section>
-            <h2>Выбор инструментов</h2>
-            <img class="center" src="img/220px-Leon-poster.jpg"/>
-            <br/>
-            <h4 class="fragment">Винтовка - для новичков</h4>
-            <h4 class="fragment">Вершина карьеры - нож</h4>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h2>Выводы</h2>
-            <span class="big">
-              <span class="fragment">Архитектура должна строиться</span><br/>
-              <span class="fragment">вокруг бизнеса</span><br/>
-              <span class="fragment">а не инструментов</span><br/>
-            </span>
-          </section>
-
-          <section>
-            <h2>Выводы</h2>
-            <span class="big">
-              <div class="fragment">
-                Не доверяйте тем, кто якобы знает ваш бизнес лучше вас
-                <img class="center" src="img/smart-ass.png"/>
+              <div style="vertical-align: middle;">
+                WatirSplash = API ( <img src="img/watir_podcast_logo.png"/> )
+              </div>
+              <div>
+                Selenide = API ( <img src="img/selenium-logo.png"/> )
               </div>
             </span>
           </section>
-
-          <section>
-            <h2>Выводы</h2>
-            <span class="big">
-              <span class="fragment">Найдите того, кто поможет вам понять свой бизнес.</span><br/><br/>
-              <span class="fragment">И улучшить!</span>
-            </span>
-          </section>
-
-          <section>
-            <h2>Советы</h2>
-            <span class="big">
-              <blockquote>Тот, кто подметает, имеет право выбирать веник!</blockquote>
-            </span>
-          </section>
-          <section>
-            <h2>Советы</h2>
-            <span class="big">
-              <img class="fragment center" src="img/hierarchy.png" />
-            </span>
-            <div class="fragment medium" style="position: absolute; left: 0; top: 50px; text-align: left; width: 100px;"> Архитектор: спрашивай фидбэк!</div>
-            <div class="fragment medium" style="position: absolute; right: 0; top: 50px; text-align: right; width: 100px;"> Разработчик: давай фидбэк!</div>
-            <h4 class="fragment rotate45 bottom right bordered">Двухсторонняя связь!</h4>
-          </section>
         </section>
 
+
+
+        <section>
+          <h2>Demo</h2>
+          <span class="big">
+            <img src="/home/andrei/Pictures/fast_and_furious.jpg" style="border: none;"/>
+          </span>
+        </section>
+
+
+
 				<section>
-					<h4>Спасибо, чо</h4>
 					<img src="img/asolntsev.png" class="medium-space"/><br/><br/><br/>
-          <h2>Будьте проще!</h2>
+          <h2>Thank you!</h2>
           <span style="position: absolute; left: 0; bottom: 0;">
             <img src="img/codeborne_logo.png" width="260px" style="border: none;"/>
           </span>
 
           <span class="company">
-            <a href="http://asolntsev.livejournal.com">asolntsev.livejournal.com</a><br/>
+            <a href="http://asolntsev.blogspot.com/">asolntsev.blogspot.com/</a><br/>
           </span>
 				</section>
 			</div>
