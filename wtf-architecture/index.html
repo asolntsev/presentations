@@ -139,7 +139,7 @@
           <img src="img/rts_context_default.png" style="border: none;"/><br/>
           <div class="author">
             <span>Andrei Solntsev</span>
-            <a href="http://ru.codeborne.com"><span>Codeborne OÜ</span></a>
+            <a href="http://ru.codeborne.com"><span>Codeborne</span></a>
           </div>
 
           <div class="company">
@@ -267,72 +267,36 @@
               <li class="fragment">Хранение, исполнение, тестирование правил</li>
             </ul>
             <pre class="fragment medium-space"><code class="language-java">
-  rule "Age verification"
-  when
-    Borrower(age < 18)
-    $loanApp : LoanApplication()
-  then
-    $loanApp.addFeedbackMessage(MIN_AGE);
-  end
+rule "Age verification"
+when
+  Borrower(age < 18)
+  $loanApp : LoanApplication()
+then
+  $loanApp.addFeedbackMessage(MIN_AGE);
+end
             </code></pre>
 
             <a class="fragment" href="http://www.devclub.eu/2009/02/01/there-is-something-about-ilog/">iLog & Drools @ DevClub</a>
           </section>
           <section>
             <h2>Business Rules</h2>
-            <img src="img/business-rules-1.png"/>
-          </section>
-          <section>
-            <h2>Business Rules</h2>
-            <pre><code contenteditable class="java">
-  rule “Closed subrequests"
-  when
-    $kpiEvent:CKPIEvent(eventTypeID==502)
-  then
-    $kpiEvent.addKPIDefinitionId(56);
-  end
-            </code></pre>
-          </section>
-          <section>
-            <h2>Business Rules</h2>
-            <img src="img/business-rules-2.png"/>
-          </section>
-          <section>
-            <h2>Business Rules</h2>
-            <pre><code contenteditable class="java">
-  rule "Order is completed"
-  when
-    $kpiEvent: CKPIEvent(eventTypeID==503)
-  then
-    $kpiEvent.incCounter( 1,
-                 $kpiEvent.getCustomerID(),
-                 $kpiEvent.getOrderReadyDate());
-            </code></pre>
-          </section>
-          <section>
-            <h2>Business Rules</h2>
-            <img src="img/business-rules-3.png"/>
-          </section>
-          <section>
-            <h2>Business Rules</h2>
-            <pre><code contenteditable class="java">
-rule "Order is completed"
-
+            <pre class="fragment medium-space"><code class="language-java">
+rule "Client is at least 18 years old"
 when
-  $kpiEvent: CKPIEvent(eventTypeID==503)
+  Borrower(age < 18)
+  $loanApp : LoanApplication()
 then
-  $kpiEvent.incCounter( 1,
-               $kpiEvent.getCustomerID(),
-               $kpiEvent.getOrderReadyDate());
-
-  $kpiEvent.addNotification(new Notification()
-    .setCollection("DAY_SUMMARY", ...)
-    .setCollectionKey( ... )
-    .setKpiDefinitionID( ... )
-    .setSummaryPeriod("DAY")
-    .setAggregationTime( ... )
-    .setEventType("completed_orders")
-  );
+  $loanApp.addFeedbackMessage(MIN_AGE);
+end
+            </code></pre>
+            <pre class="fragment medium-space"><code class="language-java">
+rule "Client is younger than 60 years"
+when
+  Borrower(age > 60)
+  $loanApp : LoanApplication()
+then
+  $loanApp.addFeedbackMessage(MAX_AGE);
+end
             </code></pre>
           </section>
           <section>
@@ -349,6 +313,18 @@ then
             <p class="fragment">То же самое проще сделать в коде!</p>
             <p class="fragment bottom right"><img src="img/face_lol.jpg" class="center"/></p>
           </section>
+          <section>
+            <h2>Business Rules</h2>
+            <pre class="fragment medium-space"><code class="language-java">
+public void validateClient() {
+
+  assertThat(MIN_AGE, age, isGreaterThan(18));
+
+  assertThat(MAX_AGE, age, isLessThan(60));
+
+}
+            </code></pre>
+          </section>
         </section>
 
 
@@ -358,15 +334,15 @@ then
 
         <section>
           <section>
-            <h2>Servicemix</h2>
+            <h2>ESB</h2>
             <img src="img/ServiceMix3.png" height="500px"/>
           </section>
           <section>
-            <h2>Servicemix</h2>
+            <h2>ESB</h2>
             <img src="img/servicemix_jbi_message_flow_diagram4.png" height="500px"/>
           </section>
           <section>
-            <h2>Servicemix</h2>
+            <h2>ESB</h2>
             <ul class="medium-space">
               <li class="fragment">Высокий порог вхождения</li>
               <li class="fragment">Нетривиальный деплоймент</li>
@@ -374,24 +350,35 @@ then
             </ul>
           </section>
           <section>
-            <h2>Camel</h2>
+            <h2>Code it!</h2>
             <pre><code contenteditable class="java">
-context.addRoutes(new RouteBuilder() {
-  public void configure() {
-    from("test-jms:queue:test.queue")
-     .to("file://test");
-  }
-});
+public void importBilling() {
+
+  from("jms:queue:billing-report")
+
+  .log("file:${logs}/billing_requests")
+
+  .transformWith("request_to_envelope.xslt")
+
+  .to("https://${billing.service}/report?wsdl");
+}
             </code></pre>
-            <div class="fragment">
-              Почему не Camel?
-              <blockquote>В ServiceMix <b>можно</b> запускать много потоков, много инстансов одного компонента.</blockquote>
-            </div>
             <br/>
             <br/>
             <p class="left"><a href="http://www.devclub.eu/2009/04/11/jevgeni-holodkov-apache-servicemix/">ServiceMix @ DevClub</a></p>
             <p class="left"><a href="http://www.devclub.eu/2009/04/11/anton-arhipov-apache-camel/">Camel @ DevClub</a></p>
+          </section>
+          <section>
+            <div class="fragment">
+              <h2>Преимущества ESB:</h2>
+              <ul>
+                <li><b>Можно</b> запускать много потоков</li>
+                <li><b>Можно</b> запускать экземпляров каждого компонента</li>
+                <li><b>Можно</b> мониторить компоненты</li>
+              </ul>
+            </div>
             <h4 class="fragment rotate45 bottom60 right bordered">А нужно ли?</h4>
+            <img src="img/lol.png" align="right" class="fragment" style="position: absolute; right: 300px; top: 430px;"/>
           </section>
           <section>
             <h2>Servicemix</h2>
@@ -426,14 +413,6 @@ public void configure() {
                 </td>
               </tr>
             </table>
-          </section>
-          <section>
-            <h2>В чём юмор:</h2>
-            <ul class="medium">
-              <li class="fragment">Один инстанс каждого компонента</li>
-            </ul>
-            <img src="img/servicemix_jbi_message_flow_diagram4.png" height="300px"/>
-            <img src="img/lol.png" align="right" class="fragment" style="position: absolute; right: 100px; top: 430px;"/>
           </section>
         </section>
 
