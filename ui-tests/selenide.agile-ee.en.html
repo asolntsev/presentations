@@ -4,9 +4,9 @@
 	<head>
 		<meta charset="utf-8">
 		
-		<title>Selenide - Андрей Солнцев + Вадим Герасимов</title>
+		<title>Selenide.org - Andrei Solntsev</title>
 
-		<meta name="description" content="Selenium @ seleniumcamp.com">
+		<meta name="description" content="Selenium @ Agile Saturday">
 		<meta name="author" content="Andrei Solntsev">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -155,26 +155,24 @@
 			
 			<div class="slides">
 				<section>
-					<h2>Selenide</h2>
-          <!--<img src="img/rts_context_default.png" style="border: none;"/><br/>-->
-          <!--<img src="http://carsmedia.ign.com/cars/image/article/713/713047/the-fast-and-the-furious-tokyo-drift-car-of-the-day-hans-s15-20060616025826178.jpg" style="border: none;"/><br/>-->
-          <!--<img src="http://1.bp.blogspot.com/-mNsA80eVY9w/UAr2WvF0-XI/AAAAAAAAAC8/qYJVTqIuWHQ/s1600/Fast+and+Furious+Cars+743+(2).jpg" style="border: none;"/><br/>-->
-          <img src="img/selenide.png" width="350" style="border: none;"/>
+					<h2>UI Tests</h2>
+					<h4>in Java and Scala</h4>
+          <img src="img/selenide.png" width="300" style="border: none;"/>
           <div class="author">
             <span>Andrei Solntsev</span>
-            <a href="http://ru.codeborne.com">
+            <a href="http://codeborne.com">
               <img alt="Codeborne" src="img/codeborne_logo.png" width="300px" border="0" style="border: none;"/><br/>
             </a>
           </div>
 
           <span style="position: absolute; left: -100px; bottom: 0;">
-            <img src="img/selenium-camp-logo.png" width="300px" style="border: none;"/>
+            <img src="img/agile-ee-logo.png" width="200px" style="border: none;"/>
           </span>
         </section>
 				
 				<section>
-					<h3>Обо мне</h3>
-          <span class="big">Программер, чо!</span><br/>Codeborne
+					<h3>About me</h3>
+          <span class="big">Software creator</span><br/>Codeborne
 
           <br/>
           <br/>
@@ -183,12 +181,12 @@
 
           <div style="text-align: left; width: 90%;" class="fragment">
             <!--<img src="http://www.devclub.eu/wp-content/uploads/2012/07/devclub_logo_320x240_transparent.png" style="border: none; width: 200px;"/><br/>-->
-            <span class="big">DevClub.eu</span><br/>организатор
+            <span class="big">DevClub.eu</span><br/>organizer
           </div>
 
           <div style="text-align: right; width: 90%;" class="fragment">
             <!--<img src="http://www.ljplus.ru/img4/a/s/asolntsev/selenide.jpg" style="border: none; width: 200px"/><br/>-->
-            <span class="big">Selenide.org</span><br/>автор
+            <span class="big">Selenide.org</span><br/>author
           </div>
 
           <div class="fragment centered-block">
@@ -197,12 +195,11 @@
 				</section>
 
 				<section>
-					<h2>Повестка дня</h2>
+					<h2>Agenda</h2>
           <ul class="big">
-            <li>Что это?</li>
-            <li>Зачем это?</li>
-            <li>Как это?</li>
-            <li>Философия</li>
+            <li>UI Tests</li>
+            <li>Selenide</li>
+            <li>Scala</li>
           </ul>
 				</section>
 
@@ -211,21 +208,21 @@
           <section>
             <h2>Что это?</h2>
             <span class="big">
-              Selenide <br/> = <br/> <b>выразительные</b> тесты <br/> на Selenium WebDriver
+              Selenide <br/> = <br/> <b>concise</b> tests <br/> using Selenium WebDriver
             </span>
           </section>
           <section>
-            <h2>Selenide</h2>
+            <h3>UI Tests with Selenide:</h3>
             <span class="big">
               <ul>
-                <li>Выразительные тесты</li>
-                <li class="fragment">Читаемые</li>
-                <li class="fragment">Без мусора</li>
+                <li>Concise</li>
+                <li class="fragment">readable</li>
+                <li class="fragment">boilerplate-free</li>
               </ul>
             </span>
 
             <div class="big fragment">
-              Сосредоточься на бизнес-логике!
+              Concentrate on business logic!
             </div>
           </section>
           <section>
@@ -260,64 +257,40 @@ public void userCanLogin() {
 
 
         <section>
-          <h2>Проблемы UI-тестов</h2>
+          <h2>Typical problems of UI-Tests</h2>
           <span class="big">
             <ul>
-              <li>Нестабильные</li>
-              <li class="fragment">Чёртов Ajax</li>
-              <li class="fragment">Тамагочи</li>
+              <li>Unstable</li>
+              <li class="fragment">F&ck; Ajax</li>
+              <li class="fragment">Needs attention</li>
             </ul>
           </span>
 
-          <h3 class="fragment rotate45 bottom right">Забудь!</h3>
+          <h3 class="fragment rotate45 bottom right">Forget it!</h3>
         </section>
 
         <section>
           <section>
-            <h1>Selenide</h1>
-            <h2>vs</h2>
-            <h1>Selenium</h1>
+            <h1>Selenide API</h1>
           </section>
           <section>
-            <h2>WebDriver</h2>
-<pre class="medium-space"><code class="language-java">
-DesiredCapabilities cap = htmlUnit();
-cap.setCapability(INVALIDSELECTIONERROR, true);
-cap.setCapability(INVALIDXPATHERROR, false);
-cap.setJavascriptEnabled(true);
-WebDriver driver = new HtmlUnitDriver(cap);
+            <h2>Start application</h2>
+<pre class="medium-space selenide-logo"><code class="language-java">
+open("http://google.com");
 </code></pre>
-            <div class="fragment bottom right selenide-logo">
-<pre class="medium-space"><code class="language-java">open("/my-application/login");
-</code></pre>
-            </div>
           </section>
           <section>
             <h2>Find element</h2>
-<pre class="medium-space"><code class="language-java">
-WebElement customer =
-  driver.findElement(By.id("customerContainer"));
+<pre class="medium-space selenide-logo"><code class="language-java">
+$(By.name("q")).type("Selenide");
 </code></pre>
-            <div class="fragment bottom right selenide-logo">
-<pre class="medium-space"><code class="language-java">WebElement customer = $("#customerContainer");
-</code></pre>
-            </div>
           </section>
           <section>
             <h2>Text check</h2>
-<pre class="medium-space"><code class="language-java">
-assertEquals("Customer profile",
-  driver.findElement(
-    By.id("customerContainer")).getText());
-</code></pre>
-            <div class="fragment bottom right selenide-logo">
-<pre class="medium-space"><code class="language-java">
+<pre class="medium-space selenide-logo"><code class="language-java">
 $("#customerContainer").shouldHave(
-  text("Customer profile"),
-  text("John"),
-  cssClass("active-profile"));
+  text("Customer profile"));
 </code></pre>
-            </div>
           </section>
           <section>
             <h2>Ajax support</h2>
@@ -341,14 +314,42 @@ assertEquals("John", browser.findElement(By.tagName("TEXTAREA")).getAttribute("v
             <h2>Ajax support</h2>
             <div class="selenide-logo">
 <pre class="medium-space"><code class="language-java">
+$(".logout").should(disappear);
+
+$("#username").shouldHave(text("chuck"));
+
 $("TEXTAREA").shouldHave(value("John"));
+
+$(".logout").shouldNotBe(visible);
 </code></pre>
             </div>
+
+            <h3 class="fragment rotate45 bottom right">Yeah, it waits!</h3>
+          </section>
+          <section>
+            <h2>More checks</h2>
+<pre class="medium-space selenide-logo"><code class="language-java">
+$("#customerContainer").shouldHave(
+  text("Customer profile"),
+  attribute("title", "Profile"),
+  attribute("readonly"),
+  cssClass("active-profile"));
+</code></pre>
+          </section>
+          <section>
+            <h2>Screenshots</h2>
+<pre class="medium-space selenide-logo"><code class="language-java">
+public class MyTest {
+  @Rule
+  public ScreenShooter photographer =
+    ScreenShooter.failedTests();
+}
+</code></pre>
           </section>
         </section>
 
         <section>
-          <h2>Демо</h2>
+          <h2>Demo</h2>
           <span class="big">
             <a href="http://localhost:8081/hangman" target="_blank">
               <img src="img/fast_and_furious.jpg" style="border: none;"/>
@@ -360,7 +361,7 @@ $("TEXTAREA").shouldHave(value("John"));
 
 				<section>
 					<img src="img/asolntsev.png" class="medium-space"/><br/><br/><br/>
-          <h2>Спасибо!</h2>
+          <h2>Thank you!</h2>
           <span style="position: absolute; left: 0; bottom: 0;">
             <img src="img/codeborne_logo.png" width="260px" style="border: none;"/>
           </span>
