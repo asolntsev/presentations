@@ -44,6 +44,11 @@
         line-height: 70px;
       }
 
+      .small {
+        font-size: 20px;
+        line-height: 40px;
+      }
+
       .medium-space {
         margin-top: 60px !important;
       }
@@ -136,6 +141,10 @@
         bottom: -50px;
         width: 300px;
       }
+
+      .red {
+        color: red;
+      }
     </style>
 		<script>
 			// If the query includes 'print-pdf' we'll use the PDF print sheet
@@ -161,7 +170,8 @@
           <!--<img src="http://1.bp.blogspot.com/-mNsA80eVY9w/UAr2WvF0-XI/AAAAAAAAAC8/qYJVTqIuWHQ/s1600/Fast+and+Furious+Cars+743+(2).jpg" style="border: none;"/><br/>-->
           <img src="img/selenide.png" width="350" style="border: none;"/>
           <div class="author">
-            <span>Andrei Solntsev</span>
+            <span>Андрей Солнцев</span>
+            <span>Вадим Герасимов</span>
             <a href="http://ru.codeborne.com">
               <img alt="Codeborne" src="img/codeborne_logo.png" width="300px" border="0" style="border: none;"/><br/>
             </a>
@@ -173,28 +183,49 @@
         </section>
 				
 				<section>
-					<h3>Обо мне</h3>
-          <span class="big">Программер, чо!</span><br/>Codeborne
+          <section>
+            <h3>О нас</h3>
+            <table style="width: 100%; border: none;">
+              <tr>
+                <td style="width: 50%; text-align: left;">
+                  <img src="img/vadim_gerassimov_200x200.png"/><br/>
+                  Вадим Герасимов
+                </td>
+                <td style="text-align: right;">
+                  <img src="img/asolntsev.png" class="medium-space"/><br/>
+                  Андрей Солнцев
+                </td>
+              </tr>
+            </table>
 
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-
-          <div style="text-align: left; width: 90%;" class="fragment">
-            <!--<img src="http://www.devclub.eu/wp-content/uploads/2012/07/devclub_logo_320x240_transparent.png" style="border: none; width: 200px;"/><br/>-->
-            <span class="big">DevClub.eu</span><br/>организатор
-          </div>
-
-          <div style="text-align: right; width: 90%;" class="fragment">
-            <!--<img src="http://www.ljplus.ru/img4/a/s/asolntsev/selenide.jpg" style="border: none; width: 200px"/><br/>-->
-            <span class="big">Selenide.org</span><br/>автор
-          </div>
-
-          <div class="fragment centered-block">
-            <img src="img/hersonissos.jpg" width="800px"/>
-          </div>
-				</section>
+            <div style="text-align: center; width: 100%;" class="fragment medium-space">
+              <span class="big">Программеры, чо</span>
+            </div>
+          </section>
+          <section>
+            <h3>О нас</h3>
+            <div style="text-align: left; margin-left: 20%; width: 100%;" class="fragment">
+              <span class="big">TDD</span>
+            </div>
+            <div style="text-align: left; margin-left: 60%; width: 100%;" class="fragment">
+              <span class="big">Pair programming</span>
+            </div>
+            <div style="text-align: center; width: 100%;">
+              <a href="http://ru.codeborne.com">
+                <img alt="Codeborne" src="img/codeborne_logo.png" width="300px" border="0" style="border: none;"/><br/>
+              </a>
+            </div>
+            <div style="text-align: left; margin-left: 10%; width: 100%;" class="fragment">
+              <span class="big">UI Tests</span>
+            </div>
+            <div style="text-align: left; margin-left: 80%; width: 100%;" class="fragment">
+              <span class="big">CI</span>
+            </div>
+            <div style="text-align: left; margin-left: 20%; width: 100%;" class="fragment">
+              <span class="big">Сами кодим, сами тестируем</span>
+            </div>
+          </section>
+        </section>
 
 				<section>
 					<h2>Повестка дня</h2>
@@ -256,20 +287,79 @@ public void userCanLogin() {
 }
 </code></pre>
           </section>
+          <section>
+            <h2>Особенности Selenide</h2>
+            <div class="medium-space right">
+              <ul>
+                <li class="fragment">Библиотека (не фреймворк)</li>
+                <li class="fragment">Быстрый старт</li>
+                <li class="fragment">Совместим с: JUnit, TestNG, ... - всё что угодно!</li>
+                <li class="fragment">Совместим с: Java, Scala, Groovy, ... - любые JVM</li>
+                <li class="fragment">Dog Food</li>
+                <li class="fragment">Максимум пользы при минимуме кода</li>
+                <li class="fragment">Используется в реальных проектах</li>
+                <li class="fragment">Решает основные проблемы UI тестов</li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <h2>История Selenide</h2>
+            <div class="medium-space right">
+              <ul>
+                <li class="fragment">Попробовали Selenium WebDriver</li>
+                <li class="fragment">Нафигачили вспомогательных методов</li>
+                <li class="fragment">Вынесли в open-source</li>
+                <li class="fragment">1.5 года шлифовали в реальных проектах</li>
+                <li class="fragment">И вот мы на Selenium Camp!</li>
+              </ul>
+            </div>
+          </section>
         </section>
 
 
         <section>
-          <h2>Проблемы UI-тестов</h2>
-          <span class="big">
-            <ul>
-              <li>Нестабильные</li>
-              <li class="fragment">Чёртов Ajax</li>
-              <li class="fragment">Тамагочи</li>
-            </ul>
-          </span>
+          <section>
+            <h2>Проблемы UI-тестов</h2>
+            <span class="big">
+              <ul>
+                <li class="fragment">Нестабильные</li>
+                <li class="fragment">Чёртов Ajax</li>
+                <li class="fragment">Тамагочи</li>
+              </ul>
+            </span>
 
-          <h3 class="fragment rotate45 bottom right">Забудь!</h3>
+            <h3 class="fragment rotate45 bottom right">Забудь!</h3>
+          </section>
+          <section>
+            <h2>Решения Selenide</h2>
+            Все should-методы ЖДУТ наступления события.
+
+            <pre class="small-space">
+<code class="language-java">
+<span class="fragment"><b>$</b>(".loading_progress").<b>shouldBe</b>(<b class="red">visible</b>);</span>
+
+<span class="fragment"><b>$</b>("#menu").<b class="red">shouldHave(text</b>("Hello, John!"));</span>
+
+<span class="fragment"><b>$</b>(By.name("sex")).<b class="red">shouldNotBe</b>(<b>selected</b>);</span>
+</code></pre>
+            <h3 class="fragment rotate45 bottom right">Забудь <br/>про AJAX!</h3>
+          </section>
+          <section>
+            <h2>Решения Selenide</h2>
+            Рекомендуем искать элементы по тексту
+
+            <pre class="small-space">
+<code class="language-java">
+<span class="fragment small">import static com.codeborne.selenide.Selectors.*;</span>
+
+<span class="fragment">$(<b class="red">byText</b>("Привет, чертяка!"))
+   .shouldBe(visible);</span>
+
+<span class="fragment">$(<b class="red">withText</b>("ертяк"))
+   .shouldHave(text("Привет, чертяка"));</span>
+</code></pre>
+            <h3 class="fragment rotate45 bottom right">Думай <br/>как юзер!</h3>
+          </section>
         </section>
 
         <section>
