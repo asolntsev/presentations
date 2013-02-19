@@ -435,6 +435,41 @@ $("TEXTAREA").shouldHave(value("John"));
 </code></pre>
             </div>
           </section>
+          <section>
+            <h2>Page Objects extension (I)</h2>
+<pre class="medium-space"><code class="language-java">
+public class LoginPage {
+  @FindBy(name = "email")
+  public SelenideElement email;
+  @FindBy(name = "password")
+  public SelenideElement password;
+  @FindBy(id = "login")
+  private SelenideElement login;
+
+  public DashboardPage loginValid() {
+    signup.click();
+    return page(DashboardPage.class);
+  }
+}
+</code></pre>
+          </section>
+          <section>
+            <h2>Page Objects extension (II)</h2>
+<pre class="small small-space"><code class="language-java">
+class UserStatus extends ElementsContainer {
+@FindBy(className="name") SelenideElement name;
+@FindBy(className="last-login") SelenideElement lastLogin;
+}
+class UserInfo extends ElementsContainer {
+@FindBy(className="firstname") SelenideElement firstName;
+@FindBy(className="lastname") SelenideElement lastName;
+}
+public class UserPage {
+@FindBy(id="status") UserStatus userStatus;
+@FindBy(id="user-info") UserInfo userInfo;
+}
+</code></pre>
+          </section>
         </section>
 
         <section>
