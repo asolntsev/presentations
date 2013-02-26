@@ -435,15 +435,69 @@ $("TEXTAREA").shouldHave(value("John"));
 </code></pre>
             </div>
           </section>
+          <section>
+            <h2>Page Objects extension (I)</h2>
+<pre class="medium-space"><code class="language-java">
+public class LoginPage {
+  @FindBy(name = "email")
+  public SelenideElement email;
+  @FindBy(name = "password")
+  public SelenideElement password;
+  @FindBy(id = "login")
+  private SelenideElement login;
+
+  public DashboardPage loginValid() {
+    signup.click();
+    return page(DashboardPage.class);
+  }
+}
+</code></pre>
+          </section>
+          <section>
+            <h2>Page Objects extension (II)</h2>
+<pre class="small small-space"><code class="language-java">
+class UserStatus extends ElementsContainer {
+@FindBy(className="name") SelenideElement name;
+@FindBy(className="last-login") SelenideElement lastLogin;
+}
+class UserInfo extends ElementsContainer {
+@FindBy(className="firstname") SelenideElement firstName;
+@FindBy(className="lastname") SelenideElement lastName;
+}
+public class UserPage {
+@FindBy(id="status") UserStatus userStatus;
+@FindBy(id="user-info") UserInfo userInfo;
+}
+</code></pre>
+          </section>
         </section>
 
         <section>
-          <h2>Демо</h2>
-          <span class="big">
-            <a href="http://localhost:8081/hangman" target="_blank">
-              <img src="img/fast_and_furious.jpg" style="border: none;"/>
-            </a>
-          </span>
+          <section>
+            <h2>Демо</h2>
+            <span class="big">
+              <a href="http://localhost:8081/hangman" target="_blank">
+                <img src="img/fast_and_furious.jpg" style="border: none;"/>
+              </a>
+            </span>
+          </section>
+          <section>
+            <h3>Задача:</h3>
+            <ul>
+              <li class="fragment">Дать возможность пользователю ИБ использовать карту стороннего банка для оплаты услуг</li>
+              <li class="fragment">Готова функциональность по подключению карты стороннего банка, имеется UI тест, но требуется небольшая доработка</li>
+              <li class="fragment">Необходимо реализовать листинг карт сторонних банков, активацию</li>
+            </ul>
+          </section>
+          <section>
+            <h1>Листинг карт</h1>
+          </section>
+          <section>
+            <h1>Доработка добавления карты</h1>
+          </section>
+          <section>
+            <h1>Активация</h1>
+          </section>
         </section>
 
 
