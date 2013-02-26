@@ -461,8 +461,8 @@ class UserStatus extends ElementsContainer {
 @FindBy(className="last-login") SelenideElement lastLogin;
 }
 class UserInfo extends ElementsContainer {
-@FindBy(className="firstname") SelenideElement firstName;
-@FindBy(className="lastname") SelenideElement lastName;
+@FindBy(name="firstname") SelenideElement firstName;
+@FindBy(name="lastname") SelenideElement lastName;
 }
 public class UserPage {
 @FindBy(id="status") UserStatus userStatus;
