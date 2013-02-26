@@ -6,7 +6,7 @@
 		
 		<title>Selenide - Андрей Солнцев + Вадим Герасимов</title>
 
-		<meta name="description" content="Selenide @ seleniumcamp.com">
+		<meta name="description" content="Selenide @ devclub.eu">
 		<meta name="author" content="Andrei Solntsev">
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
@@ -20,6 +20,11 @@
 		<!-- For syntax highlighting -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
     <style type="text/css">
+      img {
+        border: none !important;
+        background: none !important;
+      }
+
       .selenide-logo {
         background-image: url('img/selenide-logo-100x100.png');
         background-repeat: no-repeat;
@@ -82,6 +87,10 @@
 
       .smaller {
         font-size: 0.4em;
+      }
+
+      .left {
+        text-align: left;
       }
 
       .right {
@@ -165,20 +174,17 @@
 			<div class="slides">
 				<section>
 					<h2>Selenide</h2>
-          <!--<img src="img/rts_context_default.png" style="border: none;"/><br/>-->
-          <!--<img src="http://carsmedia.ign.com/cars/image/article/713/713047/the-fast-and-the-furious-tokyo-drift-car-of-the-day-hans-s15-20060616025826178.jpg" style="border: none;"/><br/>-->
-          <!--<img src="http://1.bp.blogspot.com/-mNsA80eVY9w/UAr2WvF0-XI/AAAAAAAAAC8/qYJVTqIuWHQ/s1600/Fast+and+Furious+Cars+743+(2).jpg" style="border: none;"/><br/>-->
-          <img src="img/selenide.png" width="350" style="border: none;"/>
-          <div class="author">
+          <img src="img/selenide.png" width="350"/>
+          <span class="author">
             <span>Андрей Солнцев</span>
             <span>Вадим Герасимов</span>
             <a href="http://ru.codeborne.com">
-              <img alt="Codeborne" src="img/codeborne_logo.png" width="300px" border="0" style="border: none;"/><br/>
+              <img class="right" alt="Codeborne" src="img/codeborne_logo.png" width="300px"/><br/>
             </a>
-          </div>
+          </span>
 
-          <span style="position: absolute; left: -100px; bottom: 0;">
-            <img src="img/selenium-camp-logo.png" width="300px" style="border: none;"/>
+          <span style="position: absolute; left: -100px; bottom: 50px;">
+            <img src="img/devclub_logo_final_eu.png" width="300"/>
           </span>
         </section>
 				
@@ -212,7 +218,7 @@
             </div>
             <div style="text-align: center; width: 100%;">
               <a href="http://ru.codeborne.com">
-                <img alt="Codeborne" src="img/codeborne_logo.png" width="300px" border="0" style="border: none;"/><br/>
+                <img alt="Codeborne" src="img/codeborne_logo.png" width="300px"/><br/>
               </a>
             </div>
             <div style="text-align: left; margin-left: 0; width: 100%;" class="fragment">
@@ -227,50 +233,11 @@
           </section>
         </section>
 
-				<section>
-					<h2>Повестка дня</h2>
-          <ul class="big">
-            <li>Что такое Selenide?</li>
-            <li>Особенности</li>
-            <li>История проекта</li>
-            <li>Типичные проблемы UI тестов</li>
-          </ul>
-				</section>
-
-
         <section>
           <section>
             <h2>Что это?</h2>
             <span class="big">
               Selenide <br/> = <br/> <b>выразительные</b> тесты <br/> на Selenium WebDriver
-            </span>
-          </section>
-          <section>
-            <h2>Selenide</h2>
-            <span class="big">
-              <ul>
-                <li>Выразительные тесты</li>
-                <li class="fragment">Читаемые</li>
-                <li class="fragment">Без мусора</li>
-              </ul>
-            </span>
-
-            <div class="big fragment">
-              Сосредоточься на бизнес-логике!
-            </div>
-          </section>
-          <section>
-            <h2>Codeborne</h2>
-            <span class="big">
-              <div style="vertical-align: middle;">
-                WatirSplash = API ( <img src="img/watir_podcast_logo.png" width="120"/> )<br/>
-                <a href="https://github.com/jarmo/WatirSplash" class="smaller right">github.com/jarmo/WatirSplash</a>
-              </div>
-              <br/>
-              <div>
-                Selenide = API ( <img src="img/selenium-logo.png" width="120"/> )<br/>
-                <a href="http://selenide.org" class="smaller right">selenide.org</a>
-              </div>
             </span>
           </section>
           <section>
@@ -280,41 +247,16 @@
 <code class="language-java">
 @Test
 public void userCanLogin() {
-  <b>open</b>("/login");
-  <b>$</b>(By.name("user.name")).<b>setValue</b>("john");
-  <b>$</b>("#submit").click();
-  <b>$</b>("#menu").<b>shouldHave(text</b>("Hello, John!"));
+  <span class="fragment"><b>open</b>("/login");</span>
+  <span class="fragment"><b>$</b>(By.name("user.name")).<b>setValue</b>("john");</span>
+  <span class="fragment"><b>$</b>("#submit").click();</span>
+  <span class="fragment"><b>$</b>("#menu").<b>shouldHave(text</b>("Hello, John!"));</span>
 }
 </code></pre>
           </section>
-          <section>
-            <h2>Особенности Selenide</h2>
-            <div class="medium-space right">
-              <ul>
-                <li class="fragment">Библиотека (не фреймворк)</li>
-                <li class="fragment">Быстрый старт</li>
-                <li class="fragment">Совместим с: JUnit, TestNG, ... - всё что угодно!</li>
-                <li class="fragment">Совместим с: Java, Scala, Groovy, ... - любые JVM</li>
-                <li class="fragment">Dog Food</li>
-                <li class="fragment">Максимум пользы при минимуме кода</li>
-                <li class="fragment">Используется в реальных проектах</li>
-                <li class="fragment">Решает основные проблемы UI тестов</li>
-              </ul>
-            </div>
-          </section>
-          <section>
-            <h2>История Selenide</h2>
-            <div class="medium-space right">
-              <ul>
-                <li class="fragment">Попробовали Selenium WebDriver</li>
-                <li class="fragment">Нафигачили вспомогательных методов</li>
-                <li class="fragment">Вынесли в open-source</li>
-                <li class="fragment">1.5 года шлифовали в реальных проектах</li>
-                <li class="fragment">И вот мы на Selenium Camp!</li>
-              </ul>
-            </div>
-          </section>
         </section>
+
+
 
 
         <section>
@@ -322,16 +264,14 @@ public void userCanLogin() {
             <h2>Проблемы UI-тестов</h2>
             <span class="big">
               <ul>
-                <li class="fragment">Нестабильные</li>
-                <li class="fragment">Чёртов Ajax</li>
-                <li class="fragment">Тамагочи</li>
+                <li class="fragment">3. Чёртов Ajax</li>
+                <li class="fragment">2. Тамагочи</li>
+                <li class="fragment">1. Deployment</li>
               </ul>
             </span>
-
-            <h3 class="fragment rotate45 bottom right">Забудь!</h3>
           </section>
           <section>
-            <h2>Решения Selenide</h2>
+            <h2>Решения: Ajax</h2>
             Все should-методы ЖДУТ наступления события.
 
             <pre class="small-space">
@@ -345,8 +285,8 @@ public void userCanLogin() {
             <h3 class="fragment rotate45 bottom right">Забудь <br/>про AJAX!</h3>
           </section>
           <section>
-            <h2>Решения Selenide</h2>
-            Рекомендуем искать элементы по тексту
+            <h2>Решения: Тамагочи</h2>
+            Искать элементы по тексту
 
             <pre class="small-space">
 <code class="language-java">
@@ -360,104 +300,58 @@ public void userCanLogin() {
 </code></pre>
             <h3 class="fragment rotate45 bottom right">Думай <br/>как юзер!</h3>
           </section>
+          <section>
+            <h2>Решения: Deployment</h2>
+
+
+            <img class="big" src="img/tdd.png" width="150px"/>
+            <br/>
+            <br/>
+            <h3 class="fragment left">Сами кодим</h3>
+            <h3 class="fragment"> - </h3>
+            <h3 class="fragment right">сами тестим!</h3>
+
+
+<!--
+            <h3 class="fragment rotate45 bottom left">Сами кодим,</h3>
+            <h3 class="fragment rotate45 bottom right">сами тестим!</h3>
+-->
+          </section>
         </section>
 
-        <section>
-          <section>
-            <h1>Selenide</h1>
-            <h2>vs</h2>
-            <h1>Selenium</h1>
-          </section>
-          <section>
-            <h2>WebDriver</h2>
-<pre class="medium-space"><code class="language-java">
-DesiredCapabilities cap = htmlUnit();
-cap.setCapability(INVALIDSELECTIONERROR, true);
-cap.setCapability(INVALIDXPATHERROR, false);
-cap.setJavascriptEnabled(true);
-WebDriver driver = new HtmlUnitDriver(cap);
-</code></pre>
-            <div class="fragment bottom right selenide-logo">
-<pre class="medium-space"><code class="language-java">open("/my-application/login");
-</code></pre>
-            </div>
-          </section>
-          <section>
-            <h2>Find element</h2>
-<pre class="medium-space"><code class="language-java">
-WebElement customer =
-  driver.findElement(By.id("customerContainer"));
-</code></pre>
-            <div class="fragment bottom right selenide-logo">
-<pre class="medium-space"><code class="language-java">WebElement customer = $("#customerContainer");
-</code></pre>
-            </div>
-          </section>
-          <section>
-            <h2>Text check</h2>
-<pre class="medium-space"><code class="language-java">
-assertEquals("Customer profile",
-  driver.findElement(
-    By.id("customerContainer")).getText());
-</code></pre>
-            <div class="fragment bottom right selenide-logo">
-<pre class="medium-space"><code class="language-java">
-$("#customerContainer").shouldHave(
-  text("Customer profile"),
-  text("John"),
-  cssClass("active-profile"));
-</code></pre>
-            </div>
-          </section>
-          <section>
-            <h2>Ajax support</h2>
-<pre class="smaller"><code class="language-java">
-FluentWait&lt;By> fluentWait = new FluentWait&lt;By>(By.tagName("TEXTAREA"));
-fluentWait.pollingEvery(100, TimeUnit.MILLISECONDS);
-fluentWait.withTimeout(1000, TimeUnit.MILLISECONDS);
-fluentWait.until(new Predicate&lt;By>() {
-  public boolean apply(By by) {
-    try {
-      return browser.findElement(by).isDisplayed();
-    } catch (NoSuchElementException ex) {
-      return false;
-    }
-  }
-});
-assertEquals("John", browser.findElement(By.tagName("TEXTAREA")).getAttribute("value"));
-</code></pre>
-          </section>
-          <section>
-            <h2>Ajax support</h2>
-            <div class="selenide-logo">
-<pre class="medium-space"><code class="language-java">
-$("TEXTAREA").shouldHave(value("John"));
-</code></pre>
-            </div>
-          </section>
-        </section>
+
 
         <section>
           <h2>Демо</h2>
           <span class="big">
-            <a href="http://localhost:8081/hangman" target="_blank">
-              <img src="img/fast_and_furious.jpg" style="border: none;"/>
-            </a>
+            <img src="img/fast_and_furious.jpg"/>
           </span>
         </section>
 
 
 
 				<section>
-					<img src="img/asolntsev.png" class="medium-space"/><br/><br/><br/>
+          <table style="width: 100%; border: none;">
+            <tr>
+              <td style="width: 50%; text-align: left;">
+                <img src="img/vadim_gerassimov_200x200.png"/><br/>
+              </td>
+              <td style="text-align: right;">
+                <img src="img/asolntsev.png" class="medium-space"/><br/>
+              </td>
+            </tr>
+          </table>
+
+          <br/>
+          <br/>
           <h2>Спасибо!</h2>
           <span style="position: absolute; left: 0; bottom: 0;">
-            <img src="img/codeborne_logo.png" width="260px" style="border: none;"/>
+            <img src="img/codeborne_logo.png" width="260px"/>
           </span>
 
           <span class="company">
-            andrei.solntsev@gmail.com<br/>
-            <a href="http://asolntsev.blogspot.com/">asolntsev.blogspot.com/</a><br/>
+            <img src="img/selenide.png" width="100"/><br/>
+            <a href="http://selenide.org/">selenide.org</a>
           </span>
 				</section>
 			</div>
