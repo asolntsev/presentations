@@ -506,13 +506,38 @@ public class UserPage {
               <li>В целях безопасности в случае неверного ввода зарезервированной суммы карта удаляется</li>
             </ul>
           </section>
+          <section>
+            <h2>Наш подход к написанию UI тестов</h2>
+            <ul>
+              <li class="fragment">
+                Стремимся UI тесты делать быстрыми, для этого
+                <ul>
+                  <li class="fragment">используем in-memory базу данных</li>
+                  <li class="fragment">заглушаем реальные сервисы, если их не можем контроллировать</li>
+                  <li class="fragment">используем упрощённый логин</li>
+                  <li class="fragment">используем сессию повторно</li>
+                </ul>
+              </li>
+              <li class="fragment">
+                Но не забываем о стабильности тестов
+                <ul>
+                  <li class="fragment">тесты не зависят друг от друга</li>
+                </ul>
+              </li>
+              <li class="fragment">UI тесты являются частью билда</li>
+            </ul>
+          </section>
         </section>
 
 
 
 				<section>
-					<img src="img/asolntsev.png" class="medium-space"/><br/><br/><br/>
           <h2>Спасибо!</h2>
+          <dl style="margin-top: 100px;">
+            <dt>Вопросы</dt>
+            <dt>Ответы</dt>
+            <dt>Комментарии</dt>
+          </dl>
           <span style="position: absolute; left: 0; bottom: 0;">
             <img src="img/codeborne_logo.png" width="260px" style="border: none;"/>
           </span>
@@ -520,6 +545,7 @@ public class UserPage {
           <span class="company">
             andrei.solntsev@gmail.com<br/>
             <a href="http://asolntsev.blogspot.com/">asolntsev.blogspot.com/</a><br/>
+            vadger@gmail.com<br/>
           </span>
 				</section>
 			</div>
