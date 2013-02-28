@@ -441,15 +441,15 @@ $("TEXTAREA").shouldHave(value("John"));
             </div>
           </section>
           <section>
-            <h2>Page Objects extension (I)</h2>
+            <h2>Page Objects extension</h2>
 <pre class="medium-space"><code class="language-java">
-public class LoginPage {
+public class SignupPage {
   @FindBy(name = "email")
   public SelenideElement email;
   @FindBy(name = "password")
   public SelenideElement password;
-  @FindBy(id = "login")
-  private SelenideElement login;
+  @FindBy(id = "signup")
+  private SelenideElement signup;
 
   public DashboardPage loginValid() {
     signup.click();
@@ -459,19 +459,21 @@ public class LoginPage {
 </code></pre>
           </section>
           <section>
-            <h2>Page Objects extension (II)</h2>
+            <h2>Page Objects extension</h2>
 <pre class="small small-space"><code class="language-java">
-class UserStatus extends ElementsContainer {
-@FindBy(className="name") SelenideElement name;
-@FindBy(className="last-login") SelenideElement lastLogin;
-}
-class UserInfo extends ElementsContainer {
-@FindBy(name="firstname") SelenideElement firstName;
-@FindBy(name="lastname") SelenideElement lastName;
-}
-public class UserPage {
-@FindBy(id="status") UserStatus userStatus;
-@FindBy(id="user-info") UserInfo userInfo;
+@Test
+public void afterSignupUserLandsOnDashboard() {
+open("/signup");
+
+SignupPage signupPage = page(SignupPage.class);
+signupPage.email.shouldHave(value(""))
+  .val("existing@email.com");
+signupPage.password.shouldHave(value(""))
+  .val("validPassword");
+
+DashboardPage dashboardPage =
+  signupPage.signupValid();
+// do some dashboard page assertions
 }
 </code></pre>
           </section>
