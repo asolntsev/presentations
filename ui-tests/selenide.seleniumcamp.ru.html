@@ -159,6 +159,12 @@
       .red {
         color: red;
       }
+      .green {
+        color: green;
+      }
+      .blue {
+        color: blue;
+      }
     </style>
 		<script>
 			// If the query includes 'print-pdf' we'll use the PDF print sheet
@@ -245,9 +251,8 @@
 					<h2>Повестка дня</h2>
           <ul class="big">
             <li>Что такое Selenide?</li>
-            <li>Особенности</li>
-            <li>История проекта</li>
-            <li>Типичные проблемы UI тестов</li>
+            <li>Глобальные проблемы UI тестов</li>
+            <li>Wоrкшїп: интернет-банк</li>
           </ul>
 				</section>
 
@@ -413,14 +418,14 @@ WebDriver driver = new HtmlUnitDriver(cap);
 </code></pre>
             </div>
 
-            <div class="fragment bottom left" style="left: -150px;">
+            <div class="bottom left" style="left: -150px;">
               <ul>
                 <li class="fragment">firefox</li>
-                <li class="fragment">chrome</li>
-                <li class="fragment">htmlunit</li>
-                <li class="fragment">phantomjs</li>
-                <li class="fragment">ie</li>
-                <li class="fragment">opera</li>
+                <li class="fragment green">chrome</li>
+                <li class="fragment blue">htmlunit</li>
+                <li class="fragment blue">phantomjs</li>
+                <li class="fragment red">ie</li>
+                <li class="fragment red">opera</li>
               </ul>
             </div>
           </section>
