@@ -25,6 +25,11 @@
         font-family: 'Trebuchet MS', Tahoma;
       }
 
+      img {
+        border: none !important;
+        background: none !important;
+      }
+
       .selenide-logo {
         background-image: url('img/selenide-logo-100x100.png');
         background-repeat: no-repeat;
@@ -87,6 +92,10 @@
 
       .smaller {
         font-size: 0.4em;
+      }
+
+      .left {
+        text-align: left;
       }
 
       .right {
@@ -170,20 +179,20 @@
 			<div class="slides">
 				<section>
 					<h2>Selenide</h2>
-          <!--<img src="img/rts_context_default.png" style="border: none;"/><br/>-->
-          <!--<img src="http://carsmedia.ign.com/cars/image/article/713/713047/the-fast-and-the-furious-tokyo-drift-car-of-the-day-hans-s15-20060616025826178.jpg" style="border: none;"/><br/>-->
-          <!--<img src="http://1.bp.blogspot.com/-mNsA80eVY9w/UAr2WvF0-XI/AAAAAAAAAC8/qYJVTqIuWHQ/s1600/Fast+and+Furious+Cars+743+(2).jpg" style="border: none;"/><br/>-->
-          <img src="img/selenide.png" width="350" style="border: none;"/>
+          <!--<img src="img/rts_context_default.png"/><br/>-->
+          <!--<img src="http://carsmedia.ign.com/cars/image/article/713/713047/the-fast-and-the-furious-tokyo-drift-car-of-the-day-hans-s15-20060616025826178.jpg"/><br/>-->
+          <!--<img src="http://1.bp.blogspot.com/-mNsA80eVY9w/UAr2WvF0-XI/AAAAAAAAAC8/qYJVTqIuWHQ/s1600/Fast+and+Furious+Cars+743+(2).jpg"/><br/>-->
+          <img src="img/selenide.png" width="350"/>
           <div class="author">
             <span>Андрей Солнцев</span>
             <span>Вадим Герасимов</span>
             <a href="http://ru.codeborne.com">
-              <img alt="Codeborne" src="img/codeborne_logo.png" width="300px" border="0" style="border: none;"/><br/>
+              <img alt="Codeborne" src="img/codeborne_logo.png" width="300px"/><br/>
             </a>
           </div>
 
           <span style="position: absolute; left: -100px; bottom: 0;">
-            <img src="img/selenium-camp-logo.png" width="300px" style="border: none;"/>
+            <img src="img/selenium-camp-logo.png" width="300px"/>
           </span>
         </section>
 				
@@ -217,7 +226,7 @@
             </div>
             <div style="text-align: center; width: 100%;">
               <a href="http://ru.codeborne.com">
-                <img alt="Codeborne" src="img/codeborne_logo.png" width="300px" border="0" style="border: none;"/><br/>
+                <img alt="Codeborne" src="img/codeborne_logo.png" width="300px"/><br/>
               </a>
             </div>
             <div style="text-align: left; margin-left: 0; width: 100%;" class="fragment">
@@ -285,10 +294,10 @@
 <code class="language-java">
 @Test
 public void userCanLogin() {
-  <b>open</b>("/login");
-  <b>$</b>(By.name("user.name")).<b>setValue</b>("john");
-  <b>$</b>("#submit").click();
-  <b>$</b>("#menu").<b>shouldHave(text</b>("Hello, John!"));
+  <span class="fragment"><b>open</b>("/login");</span>
+  <span class="fragment"><b>$</b>(By.name("user.name")).<b>setValue</b>("john");</span>
+  <span class="fragment"><b>$</b>("#submit").click();</span>
+  <span class="fragment"><b>$</b>("#menu").<b>shouldHave(text</b>("Hello, John!"));</span>
 }
 </code></pre>
           </section>
@@ -327,16 +336,16 @@ public void userCanLogin() {
             <h2>Проблемы UI-тестов</h2>
             <span class="big">
               <ul>
-                <li class="fragment">Нестабильные</li>
                 <li class="fragment">Чёртов Ajax</li>
                 <li class="fragment">Тамагочи</li>
+                <li class="fragment">Deployment</li>
               </ul>
             </span>
 
-            <h3 class="fragment rotate45 bottom right">Забудь!</h3>
+            <h3 class="fragment rotate45 bottom right">Selenide <br/>поможет!</h3>
           </section>
           <section>
-            <h2>Решения Selenide</h2>
+            <h2>Решения: Ajax</h2>
             Все should-методы ЖДУТ наступления события.
 
             <pre class="small-space">
@@ -350,8 +359,8 @@ public void userCanLogin() {
             <h3 class="fragment rotate45 bottom right">Забудь <br/>про AJAX!</h3>
           </section>
           <section>
-            <h2>Решения Selenide</h2>
-            Рекомендуем искать элементы по тексту
+            <h2>Решения: Тамагочи</h2>
+            Искать элементы по тексту
 
             <pre class="small-space">
 <code class="language-java">
@@ -365,6 +374,18 @@ public void userCanLogin() {
 </code></pre>
             <h3 class="fragment rotate45 bottom right">Думай <br/>как юзер!</h3>
           </section>
+          <section>
+            <h2>Решения: Deployment</h2>
+
+
+            <img class="big" src="img/tdd.png" width="150px"/>
+            <br/>
+            <br/>
+            <h3 class="fragment left">Сами кодим</h3>
+            <h3 class="fragment"> - </h3>
+            <h3 class="fragment right">сами тестим!</h3>
+          </section>
+
         </section>
 
         <section>
@@ -385,6 +406,10 @@ WebDriver driver = new HtmlUnitDriver(cap);
             <div class="fragment bottom right selenide-logo">
 <pre class="medium-space"><code class="language-java">open("/my-application/login");
 </code></pre>
+            </div>
+
+            <div class="fragment bottom left">
+              TEST
             </div>
           </section>
           <section>
@@ -482,7 +507,7 @@ public class UserPage {
             <h2>Демо</h2>
             <span class="big">
               <a href="http://localhost:8081/hangman" target="_blank">
-                <img src="img/fast_and_furious.jpg" style="border: none;"/>
+                <img src="img/fast_and_furious.jpg"/>
               </a>
             </span>
           </section>
@@ -539,13 +564,19 @@ public class UserPage {
             <dt>Комментарии</dt>
           </dl>
           <span style="position: absolute; left: 0; bottom: 0;">
-            <img src="img/codeborne_logo.png" width="260px" style="border: none;"/>
+            <img src="img/codeborne_logo.png" width="260px"/>
           </span>
 
+<!--
           <span class="company">
+            <a href="http://asolntsev.livejournal.com/">asolntsev.livejournal.com/</a><br/>
             andrei.solntsev@gmail.com<br/>
-            <a href="http://asolntsev.blogspot.com/">asolntsev.blogspot.com/</a><br/>
             vadger@gmail.com<br/>
+          </span>
+-->
+          <span class="company">
+            <img src="img/selenide.png" width="100"/><br/>
+            <a href="http://selenide.org/">selenide.org</a>
           </span>
 				</section>
 			</div>
