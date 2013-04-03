@@ -1,4 +1,4 @@
 Reminder for myself.
 
 To publish presentations to github web:
-/home/andrei/projects/presentations> git push -f origin master:gh-pages
+/home/andrei/Dropbox/projects/presentations> git push -f origin master:gh-pages
