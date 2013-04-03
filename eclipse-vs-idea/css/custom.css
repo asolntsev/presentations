@@ -1,0 +1,139 @@
+@charset "UTF-8";
+
+body {
+  font-family: 'Trebuchet MS', Tahoma;
+}
+
+img {
+  border: none !important;
+  background: none !important;
+}
+
+.center {
+  margin-left: auto !important;
+  margin-right: auto !important;
+  display: block !important;
+}
+
+.big {
+  font-size: 52px;
+  line-height: 90px;
+  margin-top: 90px !important;
+}
+
+.medium {
+  font-size: 40px;
+  line-height: 70px;
+}
+
+.small {
+  font-size: 20px;
+  line-height: 40px;
+}
+
+.medium-space {
+  margin-top: 60px !important;
+}
+
+.small-space {
+  margin-top: 30px !important;
+}
+
+.author {
+  text-align: right;
+  padding-top: 50pt;
+}
+.author span {
+  display: block;
+}
+.company {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+p {
+  text-align: left;
+}
+
+.centered-block {
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  top: 10%;
+}
+
+.smaller {
+  font-size: 0.4em;
+}
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.reveal pre {
+  margin: 0;
+  width: 100%;
+}
+
+pre code {
+  color: white;
+  font-size: 150%;
+  line-height: 120%;
+}
+
+.rotate45 {
+  -webkit-transform: rotate( -45deg );
+  -moz-transform: rotate( -45deg );
+  -ms-transform: rotate( -45deg );
+  -o-transform: rotate( -45deg );
+  transform: rotate( -45deg );
+}
+
+.rotate135 {
+  -webkit-transform: rotate( 45deg );
+  -moz-transform: rotate( 45deg );
+  -ms-transform: rotate( 45deg );
+  -o-transform: rotate( 45deg );
+  transform: rotate( 45deg );
+}
+
+.right {
+  position: absolute;
+  right: 0;
+}
+
+.bottom60 {
+  position: absolute;
+  bottom: 60px;
+}
+
+.bottom {
+  position: absolute;
+  bottom: 0;
+}
+
+.bordered {
+  border: solid;
+  padding: 2%;
+}
+
+.corner-image {
+  position: absolute;
+  left: -200px;
+  bottom: -50px;
+  width: 300px;
+}
+
+.red {
+  color: red;
+}
+.green {
+  color: green;
+}
+.blue {
+  color: blue;
+}
