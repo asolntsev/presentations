@@ -1,9 +1,9 @@
 <!doctype html>
 <html lang="en" xmlns="http://www.w3.org/1999/html">
-	
+
 	<head>
 		<meta charset="utf-8">
-		
+
 		<title>Eclipse vs IDEA - Андрей Солнцев</title>
 
 		<meta name="description" content="Eclipse vs IDEA @ javapoint.ru">
@@ -11,9 +11,9 @@
 
 		<meta name="apple-mobile-web-app-capable" content="yes" />
 		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-		
+
 		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-		
+
 		<link rel="stylesheet" href="css/main.css">
 		<link rel="stylesheet" href="css/theme/default.css">
 
@@ -29,13 +29,13 @@
 		<script src="lib/js/html5shiv.js"></script>
 		<![endif]-->
 	</head>
-	
+
 	<body>
-		
+
 		<div class="reveal">
 
 			<div class="state-background"></div>
-			
+
 			<div class="slides">
 				<section>
 					<h2>Eclipse vs IDEA</h2>
@@ -57,7 +57,7 @@
             </a>
           </div>
         </section>
-				
+
 				<section>
           <section>
             <h3>Обо мне</h3>
@@ -88,6 +88,7 @@
             <ul>
               <li class="fragment">Интернет-банки</li>
               <li class="fragment">Личные кабинеты</li>
+              <li class="fragment">Умный дом (TeliaSonera)</li>
             </ul>
             <div style="margin-top: 150px;" class="fragment">
               <span>Мы сделали Банк СПБ за 5 месяцев</span><br>
@@ -99,15 +100,17 @@
 				<section>
 					<h2>Повестка дня</h2>
           <ul class="big">
-            <li>Болтовня</li>
-            <li>Практика</li>
+            <li>Что должна уметь Java IDE</li>
+            <li>Usability</li>
+            <li>Refactorings</li>
+            <li>VCS</li>
           </ul>
 				</section>
 
 
         <section>
           <section>
-            <h2>Eclipse -> IDEA</h2>
+            <h2>IDE 1   ->    IDE 2</h2>
             <img class="fragment" src="img/close_to_target.jpg"/>
           </section>
           <section>
@@ -118,6 +121,19 @@
         </section>
 
         <section>
+          <section>
+            <h5>Что должна уметь</h5>
+            <h2>Java IDE</h2>
+            <span class="big">
+              <ul>
+                <li class="fragment">Autocompletion</li>
+                <li class="fragment">Рефакторинг</li>
+                <li class="fragment">Тесты</li>
+                <li class="fragment">SVN, GIT, Hg</li>
+              </ul>
+            </span>
+          </section>
+
           <section>
             <h2>+ Eclipse</h2>
             <span class="big">
@@ -134,8 +150,12 @@
             <span class="big">
               <ul>
                 <li class="fragment">Автосохранение</li>
-                <li class="fragment">Автозаполнение</li>
-                <li class="fragment">Рефакторинг</li>
+                <li class="fragment">Понимает контекст
+                  <ul>
+                    <li class="fragment small">Умные подсказки</li>
+                    <li class="fragment small">Умный рефакторинг</li>
+                  </ul>
+                </li>
                 <li class="fragment">Юнит-тесты</li>
                 <li class="fragment">SVN, GIT</li>
               </ul>
@@ -154,8 +174,120 @@
             </span>
             <small><a href="http://habrahabr.ru/post/112749/">http://habrahabr.ru/post/112749/</a></small>
           </section>
+          <section>
+            <h2>Usability</h2>
+            <ul>
+              <li class="fragment">Ctrl+Enter</li>
+              <li class="fragment">деревья</li>
+              <li class="fragment">javadoc</li>
+              <li class="fragment">Find usages</li>
+              <li class="fragment">Open class</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Autocompletion</h2>
+            <ul>
+              <li class="fragment">Static imports</li>
+              <li class="fragment">Неточное совпадение</li>
+              <li class="fragment">Подсказки в ресурсах</li>
+              <li class="fragment">Language injection</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Debug</h2>
+            <ul>
+              <li class="fragment">Inspect value</li>
+              <li class="fragment">Watch / display</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Extract variable</h2>
+            <ul>
+              <li class="fragment">Idea: Ctrl+Alt+v</li>
+              <li class="fragment">Eclipse: нужно выделить</li>
+              <li class="fragment">Eclipse: Ctrl+1 (решает только первую проблему)</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Extract method</h2>
+          </section>
+          <section>
+            <h2>Introduce Parameter</h2>
+            <ul>
+              <li class="fragment">Меняет все вызовы</li>
+              <li class="fragment">Подстроку</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Tests</h2>
+            <ul>
+              <li class="fragment">Eclipse: нету!
+                <ul>
+                  <li class="fragment">Плагин</li>
+                </ul>
+              </li>
+              <li class="fragment">Поиск теста</li>
+              <li class="fragment">Создание теста
+                <ul>
+                  <li class="fragment">Eclipse: в какой папке?</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h2>SVN, GIT</h2>
+            <ul>
+              <li class="fragment">Eclipse: только CVS! <img src="img/face_lol.jpg" align="right"/>
+                <ul>
+                  <li class="fragment">Плагины</li>
+                  <li class="fragment">Глючные</li>
+                  <li class="fragment">Неудобные</li>
+                  <br/>
+                  <br/>
+                  <br/>
+                </ul>
+              </li>
+              <li class="fragment">IDEA: SVN и GIT из коробки
+                <ul>
+                  <li class="fragment">Удобный DIFF</li>
+                  <li class="fragment">Редактирование прямо в DIFF</li>
+                  <li class="fragment">С подсказками и подсветкой!</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
         </section>
 
+
+        <section>
+          <section>
+            <h3>Это не мелочи</h3>
+            <br/>
+            <ul>
+              <li class="fragment">Силы уходят на борьбу с IDE</li>
+              <li class="fragment">и механические действия</li>
+              <li class="fragment">А должны на думанье</li>
+            </ul>
+          </section>
+          <section>
+            <br/>
+            <br/>
+            <h3>Выбирай удобный инструмент</h3>
+            <br/>
+            <br/>
+            <br/>
+            <h2 class="fragment">И изучи его</h2>
+          </section>
+          <section>
+            <br/>
+            <br/>
+            <h3>Используй свой мозг</h3>
+            <br/>
+            <br/>
+            <br/>
+            <h2 class="fragment">С УМОМ!</h2>
+          </section>
+        </section>
 
         <section>
           <img src="img/asolntsev.png" class="medium-space"/><br/><br/><br/>
@@ -181,21 +313,21 @@
 
 			<!-- Presentation progress bar -->
 			<div class="progress"><span></span></div>
-			
+
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.min.js"></script>
 
 		<script>
-			
+
 			// Full list of configuration options available here:
 			// https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
 				controls: true,
 				progress: true,
 				history: true,
-				
+
 				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/linear(2d)
 
 				// Optional libraries used to extend on reveal.js
@@ -208,7 +340,7 @@
 					{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
 				]
 			});
-			
+
 		</script>
 
 	</body>
