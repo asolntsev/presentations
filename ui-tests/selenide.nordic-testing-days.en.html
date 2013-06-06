@@ -89,9 +89,10 @@
 
       .centered-block {
         position: absolute;
+        display: block;
         margin-left: auto;
         margin-right: auto;
-        top: 10%;
+        top: 40%;
       }
 
       .smaller {
@@ -100,10 +101,6 @@
 
       .left {
         text-align: left;
-      }
-
-      .right {
-        text-align: right;
       }
 
       .reveal pre {
@@ -133,9 +130,15 @@
         transform: rotate( 45deg );
       }
 
+      .left {
+        position: absolute;
+        left: 0;
+      }
+
       .right {
         position: absolute;
         right: 0;
+        text-align: right;
       }
 
       .bottom60 {
@@ -215,10 +218,31 @@
           </ul>
 
           <div class="big-space bordered">
-            <span class="blue">git</span>
-            <span class="green">clone</span>
-            <span class="red">https://github.com/asolntsev/children.git</span>
+            <span class="green">git</span>
+            <span class="red">clone</span>
+            <span class="blue">https://github.com/asolntsev/children.git</span>
           </div>
+        </section>
+
+
+        <section>
+          <section>
+            <!--<h2 class="fragment">Paabeli torn</h2>-->
+            <img src="img/babel_torn.jpg" width="600px"/>
+            <span class="fragment left bottom">Programmers</span>
+            <span class="fragment right bottom">Testers</span>
+            <span class="fragment centered-block" style="font-size: 160px;">BULLSHIT</span>
+          </section>
+
+          <section>
+            <h2>Software creator</h2>
+            <ul class="big-space">
+              <li class="fragment">Writes code</li>
+              <li class="fragment">assures it's working</li>
+              <li class="fragment">by automated tests</li>
+            </ul>
+            <div class="fragment big-space green">Solve customer problem!</div>
+          </section>
         </section>
 
 
