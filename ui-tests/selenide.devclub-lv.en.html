@@ -262,6 +262,19 @@
 
         <section>
           <section>
+            <h2>UI tests</h2>
+            <pre class="medium-space">
+              <code>ant test</code>
+              <span class="fragment">Unit-tests</span>
+              <span class="fragment">Fast & stable -- MANY</span>
+
+              <code class="fragment">ant uitest</code>
+              <span class="fragment">UI tests</span>
+              <span class="fragment">Slow & unstable -- FEW</span>
+            </pre>
+
+          </section>
+          <section>
             <!--<h2>What is Selenide?</h2>-->
             <span class="big">
               <br/>
@@ -477,6 +490,17 @@ $("#customerContainer").shouldHave(
 </code></pre>
           </section>
           <section>
+            <h2>Collections</h2>
+<pre class="medium-space selenide-logo"><code class="language-java">
+$$("#boys tr").shouldHave(size(1));
+
+<span class="fragment">
+$$("#girls tbody tr").shouldHave(
+  texts("Angelina", "Veronika", "Darlene"));
+</span>
+</code></pre>
+          </section>
+          <section>
             <h2>Screenshots</h2>
 <pre class="medium-space selenide-logo"><code class="language-java">
 public class MyTest {
@@ -493,23 +517,17 @@ public class MyTest {
 
         <section>
           <section>
-            <h2>Demo</h2>
-            <span class="big">
-              <a href="http://localhost:8081/hangman" target="_blank">
-                <img src="img/fast_and_furious.jpg"/>
-              </a>
-            </span>
+            <h2 class="big">Demo</h2>
+            <a class="fragment medium-space" href="http://github.com/codeborne/selenide_examples">github.com/codeborne/selenide_examples</a>
           </section>
         </section>
 
 
 
 				<section>
-          <h2>Спасибо!</h2>
+          <h2>Thank you!</h2>
           <dl style="margin-top: 100px;">
-            <dt>Вопросы</dt>
-            <dt>Ответы</dt>
-            <dt>Комментарии</dt>
+            <dt>Q & A<br/></dt>
           </dl>
           <span style="position: absolute; left: 0; bottom: 0;">
             <img src="img/logo-web.png" width="260px"/>
@@ -524,7 +542,8 @@ public class MyTest {
 -->
           <span class="company">
             <img src="img/selenide.png" width="100"/><br/>
-            <a href="http://selenide.org/">selenide.org</a>
+            <a href="http://selenide.org/">selenide.org</a><br/>
+            andrei.solntsev@gmail.com
           </span>
 				</section>
 			</div>
