@@ -318,8 +318,8 @@
 @Test
 public void userCanLogin() {
   <span class="fragment"><b>open</b>("/login");</span>
-  <span class="fragment"><b>$</b>(By.name("user.name")).<b>setValue</b>("john");</span>
-  <span class="fragment"><b>$</b>("#submit").click();</span>
+  <span class="fragment"><b>$</b>("#username").<b>setValue</b>("john");</span>
+  <span class="fragment"><b>$</b>(by("type", "submit")).click();</span>
   <span class="fragment"><b>$</b>(".menu").<b>shouldHave(text</b>("Hello, John!"));</span>
 }
 </code></pre>
