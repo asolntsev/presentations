@@ -200,7 +200,7 @@
             <img src="img/devclub_lv_logo.png"/>
           </span>
         </section>
-				
+
 				<section>
           <section>
             <h3>About me</h3>
@@ -512,6 +512,28 @@ public class MyTest {
       .succeededTests();
 }
 </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Scala</h2>
+<pre class="medium-space selenide-logo"><code class="language-scala">
+class CampaignsListSpec extends BeforeAndAfter {
+  "User" can "see existing campaigns" in {
+    $(".header").shouldHave(
+      text(Labels.get("campaigns.title")))
+
+    $$("#existingCampaignsList tbody tr")
+      .shouldHaveSize(2)
+  }
+}
+</code></pre>
+          </section>
+          <section>
+            <h2>Groovy</h2>
+            <img src="img/spock_and_selenide.jpg" style="width: 90%;">
+            <img src="img/spock_and_selenide_tweet.png" class="fragment"/>
           </section>
         </section>
 
