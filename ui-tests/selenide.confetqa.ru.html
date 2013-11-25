@@ -203,8 +203,8 @@
 
 				<section>
           <section>
-            <h3>About me</h3>
-            <span class="big">Software creator</span><br/>Codeborne
+            <h3>Обо мне</h3>
+            <span class="big">Программер</span><br/>Codeborne
 
             <br/>
             <br/>
@@ -213,12 +213,12 @@
 
             <div style="text-align: left; width: 90%;" class="fragment">
               <!--<img src="http://www.devclub.eu/wp-content/uploads/2012/07/devclub_logo_320x240_transparent.png" style="border: none; width: 200px;"/><br/>-->
-              <span class="big">DevClub.eu</span><br/>organizer
+              <span class="big">DevClub.eu</span><br/>организатор
             </div>
 
             <div style="text-align: right; width: 90%;" class="fragment">
               <!--<img src="http://www.ljplus.ru/img4/a/s/asolntsev/selenide.jpg" style="border: none; width: 200px"/><br/>-->
-              <span class="big">Selenide.org</span><br/>author
+              <span class="big">Selenide.org</span><br/>автор
             </div>
 
             <div class="fragment centered-block">
@@ -226,12 +226,12 @@
             </div>
           </section>
           <section>
-            <h2>About us</h2>
+            <h2>О нас</h2>
             <div style="text-align: left; margin-left: 10%; width: 100%;" class="fragment">
               <span class="big">TDD</span>
             </div>
             <div style="text-align: left; margin-left: 60%; width: 100%;" class="fragment">
-              <span class="big">Pair programming</span>
+              <span class="big">Парное программирование</span>
             </div>
             <div style="text-align: center; width: 100%;">
               <a href="http://ru.codeborne.com">
@@ -239,23 +239,23 @@
               </a>
             </div>
             <div style="text-align: left; margin-left: 0; width: 100%;" class="fragment">
-              <span class="big">Clean code</span>
+              <span class="big">Чистый код</span>
             </div>
             <div style="text-align: left; margin-left: 80%; width: 100%;" class="fragment">
               <span class="big">KISS</span>
             </div>
             <div style="text-align: left; margin-left: 20%; width: 100%;" class="fragment">
-              <span class="big">Developers do code & test</span>
+              <span class="big">Прогеры пишут и код, и тесты</span>
             </div>
           </section>
         </section>
 
 				<section>
-					<h2>Agenda</h2>
+					<h2>Агенда</h2>
           <ul class="big">
             <li>Selenide</li>
-            <li>Common problems of UI tests</li>
-            <li>Selenide examples</li>
+            <li>Проблемы UI тестов</li>
+            <li>Примеры Selenide</li>
           </ul>
 				</section>
 
@@ -265,22 +265,22 @@
             <!--<h2>What is Selenide?</h2>-->
             <span class="big">
               <br/>
-              Selenide <br/> = <br/> <b>concise</b> and <b>stable</b> <br/>
-              tests <br/><br/> <small>(on Selenium WebDriver)</small>
+              Selenide <br/> = <br/> <b>лаконичные</b> и <b>стабильные</b> <br/>
+              тесты <br/><br/> <small class="fragment">(на Selenium WebDriver)</small>
             </span>
           </section>
           <section>
             <h2>Selenide</h2>
             <span class="big">
               <ul>
-                <li>Concise tests</li>
-                <li class="fragment">Readable</li>
-                <li class="fragment">Boilerplate-free</li>
+                <li>Лаконичные</li>
+                <li class="fragment">Читаемые</li>
+                <li class="fragment">Без мусора</li>
               </ul>
             </span>
 
             <div class="big fragment">
-              Concentrate on business logic!
+              Сконцентрируйся на бизнес-логике!
             </div>
           </section>
           <section>
@@ -302,25 +302,25 @@ public void userCanLogin() {
 
         <section>
           <section>
-            <h2>Typical problems of UI-Tests</h2>
+            <h2>Типичные проблемы <br/>UI-тестов</h2>
             <span class="big">
               <ul>
-                <li class="fragment">Unstable (F&ck; Ajax!)
+                <li class="fragment">Нестабильные (Чёртов Ajax!)
                   <ul>
                     <li class="fragment small">StaleElementException</li>
                     <li class="fragment small">ElementNotFoundException</li>
                   </ul>
                 </li>
-                <li class="fragment">Maintenance</li>
-                <li class="fragment">Architecture</li>
+                <li class="fragment">Поддержка</li>
+                <li class="fragment">Архитектура</li>
               </ul>
             </span>
 
-            <h3 class="fragment rotate45 bottom right">Selenide helps!</h3>
+            <h3 class="fragment rotate45 bottom right">Selenide поможет!</h3>
           </section>
           <section>
-            <h2>Solutions: Ajax</h2>
-            All should-methods WAIT if needed.
+            <h2>Решения: Ajax</h2>
+            Все should-методы ЖДУТ при необходимости.
 
             <pre class="small-space">
 <code class="language-java">
@@ -333,8 +333,8 @@ public void userCanLogin() {
             <h3 class="fragment rotate45 bottom right">Forget <br/>the AJAX!</h3>
           </section>
           <section>
-            <h2>Solutions: Maintenance</h2>
-            Search elements by text
+            <h2>Решения: Поддержка</h2>
+            Ищите элементы по тексту
 
             <pre class="small-space">
 <code class="language-java">
@@ -345,10 +345,10 @@ public void userCanLogin() {
 <span class="fragment">$(<b class="red">withText</b>("raza"))
    .shouldHave(text("Hello, braza!"));</span>
 </code></pre>
-            <h3 class="fragment rotate45 bottom right">Think <br/>as a user!</h3>
+            <h3 class="fragment rotate45 bottom right">Думай <br/>как юзер!</h3>
           </section>
           <section>
-            <h2>Solutions: Architecture</h2>
+            <h2>Решения: архитектура</h2>
 
             <img class="big" src="img/tdd.png" width="150px"/>
             <br/>
@@ -362,15 +362,15 @@ public void userCanLogin() {
 
         <section>
           <section>
-            <h2>UI tests</h2>
+            <h2>Залог успеха</h2>
             <pre class="medium-space">
               <code>ant test</code>
-              <span class="fragment">Unit-tests</span>
-              <span class="fragment">Fast & stable -- MANY</span>
+              <span class="fragment">Юнит-тесты</span>
+              <span class="fragment">Быстрые & стабильные -- МНОГО</span>
 
               <code class="fragment">ant uitest</code>
-              <span class="fragment">UI tests</span>
-              <span class="fragment">Slow & unstable -- FEW</span>
+              <span class="fragment">UI тесты</span>
+              <span class="fragment">Медленные & капризные -- МАЛО</span>
             </pre>
           </section>
         </section>
@@ -535,7 +535,7 @@ class CampaignsListSpec extends BeforeAndAfter {
 
         <section>
           <section>
-            <h2 class="big">Demo</h2>
+            <h2 class="big">Демо</h2>
             <a class="fragment medium-space" href="http://github.com/codeborne/selenide_examples">github.com/codeborne/selenide_examples</a>
           </section>
         </section>
@@ -543,7 +543,7 @@ class CampaignsListSpec extends BeforeAndAfter {
 
 
 				<section>
-          <h2>Thank you!</h2>
+          <h2>Пожалуйста!</h2>
           <dl style="margin-top: 100px;">
             <dt>Q & A<br/></dt>
           </dl>
