@@ -1,0 +1,620 @@
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+	
+	<head>
+		<meta charset="utf-8">
+		
+		<title>Selenide - Андрей Солнцев</title>
+
+		<meta name="description" content="Selenide @ seleniumcamp.com">
+		<meta name="author" content="Andrei Solntsev">
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/theme/default.css">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+    <style type="text/css">
+
+      body {
+        font-family: 'Trebuchet MS', Tahoma;
+      }
+
+      img {
+        border: none !important;
+        background: none !important;
+      }
+
+      .selenide-logo {
+        background-image: url('img/selenide-logo-100x100.png');
+        background-repeat: no-repeat;
+        background-position: left;
+        padding-left: 100px;
+      }
+
+      .center {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block !important;
+      }
+
+      .big {
+        font-size: 52px;
+        line-height: 90px;
+        margin-top: 90px !important;
+      }
+
+      .medium {
+        font-size: 40px;
+        line-height: 70px;
+      }
+
+      .small {
+        font-size: 20px;
+        line-height: 40px;
+      }
+
+      .medium-space {
+        margin-top: 60px !important;
+      }
+
+      .small-space {
+        margin-top: 30px !important;
+      }
+
+      .author {
+        text-align: right;
+        padding-top: 50pt;
+      }
+      .author span {
+        display: block;
+      }
+      .company {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+      }
+      p {
+        text-align: left;
+      }
+
+      .centered-block {
+        width: 100%;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin-left: auto;
+        margin-right: auto;
+        top: 50px;
+      }
+
+      .smaller {
+        font-size: 0.4em;
+      }
+
+      .left {
+        text-align: left;
+      }
+
+      .right {
+        text-align: right;
+      }
+
+      .reveal pre {
+        margin: 0;
+        width: 100%;
+      }
+
+      pre code {
+        color: white;
+        font-size: 150%;
+        line-height: 120%;
+      }
+
+      .rotate45 {
+        -webkit-transform: rotate( -45deg );
+        -moz-transform: rotate( -45deg );
+        -ms-transform: rotate( -45deg );
+        -o-transform: rotate( -45deg );
+        transform: rotate( -45deg );
+      }
+
+      .rotate135 {
+        -webkit-transform: rotate( 45deg );
+        -moz-transform: rotate( 45deg );
+        -ms-transform: rotate( 45deg );
+        -o-transform: rotate( 45deg );
+        transform: rotate( 45deg );
+      }
+
+      .right {
+        position: absolute;
+        right: 0;
+      }
+
+      .bottom60 {
+        position: absolute;
+        bottom: 60px;
+      }
+
+      .bottom {
+        position: absolute;
+        bottom: 10px;
+      }
+
+      .bordered {
+        border: solid;
+        padding: 2%;
+      }
+
+      .corner-image {
+        position: absolute;
+        left: -200px;
+        bottom: -50px;
+        width: 300px;
+      }
+
+      .red {
+        color: red;
+      }
+      .green {
+        color: green;
+      }
+      .blue {
+        color: blue;
+      }
+    </style>
+		<script>
+			// If the query includes 'print-pdf' we'll use the PDF print sheet
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+	
+	<body>
+		
+		<div class="reveal">
+
+			<div class="state-background"></div>
+			
+			<div class="slides">
+				<section>
+					<h2>Selenide</h2>
+          <!--<img src="img/rts_context_default.png"/><br/>-->
+          <!--<img src="http://carsmedia.ign.com/cars/image/article/713/713047/the-fast-and-the-furious-tokyo-drift-car-of-the-day-hans-s15-20060616025826178.jpg"/><br/>-->
+          <!--<img src="http://1.bp.blogspot.com/-mNsA80eVY9w/UAr2WvF0-XI/AAAAAAAAAC8/qYJVTqIuWHQ/s1600/Fast+and+Furious+Cars+743+(2).jpg"/><br/>-->
+          <img src="img/selenide-logo-big.png" width="200"/>
+          <div class="author">
+            <span>Андрей Солнцев</span>
+            <a href="http://ru.codeborne.com">
+              <img alt="Codeborne" src="img/logo-web.png" width="300px"/><br/>
+            </a>
+          </div>
+
+          <span style="position: absolute; left: -100px; bottom: 0;">
+            <img src="img/selenium-camp-logo.png" width="300px"/>
+          </span>
+        </section>
+				
+				<section>
+          <section>
+            <span class="big">Андрей Солнцев</span><br/>#asolntsev
+
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+
+            <div style="text-align: left; position: absolute; left: 50px; bottom: 230px;" class="fragment">
+              <span class="big">Программер</span><br/>
+              <a href="http://ru.codeborne.com">
+                <img alt="Codeborne" src="img/logo-web.png" width="250px"/>
+              </a>
+            </div>
+
+            <div style="text-align: right; position: absolute; right: 50px; bottom: 5px;" class="fragment">
+              <img src="img/selenide-logo-big.png" width="100px"/><br/>
+              <span class="big">Selenide.org</span><br/>author
+            </div>
+          </section>
+        </section>
+
+				<section>
+					<h2>Повестка дня</h2>
+          <ul class="big">
+            <li>Selenide год назад</li>
+            <li>Selenium Camp 2013</li>
+            <li>Новинки в Selenide от разработчиков</li>
+            <li>Новинки в Selenide от тестировщиков</li>
+          </ul>
+				</section>
+
+
+        <section>
+          <section>
+            <h2>Selenide</h2>
+            <span class="big">
+              = <br/> <b>выразительные</b> тесты <br/> на Selenium WebDriver
+            </span>
+          </section>
+          <section>
+            <h2>Selenide</h2>
+            <span class="big">
+              <ul>
+                <li>Выразительные тесты</li>
+                <li class="fragment">Читаемые</li>
+                <li class="fragment">Без мусора</li>
+              </ul>
+            </span>
+
+            <div class="big fragment">
+              Сосредоточься на бизнес-логике!
+            </div>
+          </section>
+          <section>
+            <h2>Selenium + API = SELENIDE</h2>
+            <a href="http://selenide.org">selenide.org</a>
+            <pre class="medium-space">
+<code class="language-java">
+@Test
+public void userCanLogin() {
+  <span class="fragment"><b>open</b>("/login");</span>
+  <span class="fragment"><b>$</b>("#username").<b>setValue</b>("john");</span>
+  <span class="fragment"><b>$</b>(by("type", "submit")).click();</span>
+  <span class="fragment"><b>$</b>(".menu").<b>shouldHave(text</b>("Hello, John!"));</span>
+}
+</code></pre>
+          </section>
+        </section>
+
+
+        <section>
+          <section>
+            <h2>Проблемы UI-тестов</h2>
+            <span class="big">
+              <ul>
+                <li class="fragment">Чёртов Ajax</li>
+                <li class="fragment">Ужас поддержки</li>
+                <li class="fragment">Читаемость тестов</li>
+              </ul>
+            </span>
+
+            <h3 class="fragment rotate45 bottom right">Selenide <br/>поможет!</h3>
+          </section>
+          <section>
+            <h2>Решения: Ajax</h2>
+            Все should-методы ЖДУТ наступления события.
+
+            <pre class="small-space">
+<code class="language-java">
+<span class="fragment"><b>$</b>(".loading_progress").<b>shouldBe</b>(<b class="red">visible</b>);</span>
+
+<span class="fragment"><b>$</b>("#menu").<b class="red">shouldHave(text</b>("Hello, John!"));</span>
+
+<span class="fragment"><b>$</b>(By.name("sex")).<b class="red">shouldNotBe</b>(<b>selected</b>);</span>
+</code></pre>
+            <h3 class="fragment rotate45 bottom right">Забудь <br/>про AJAX!</h3>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>SeleniumCamp 2013</h2>
+            <a href="http://video.yandex.ru/users/xpinjection/collection/11/">Видео</a> |
+            <a href="https://plus.google.com/u/0/photos/106549393225140627462/albums/5851501146978231009">Фото</a> |
+            <a href="http://storify.com/andrebrov/selenium-camp-2013">Storify</a>
+
+            <img src="img/154.jpg" width="750px" class="centered-block fragment"/>
+          </section>
+          <section>
+            <h2>SeleniumCamp 2013</h2>
+            <img src="img/045.jpg" width="750px" class="centered-block"/>
+          </section>
+          <section>
+            <h2>SeleniumCamp 2013</h2>
+            <img src="img/selenide_tweet_in_ukranian.png" width="900px" class="centered-block"/>
+          </section>
+          <section>
+            <h2>SeleniumCamp 2013</h2>
+            <blockquote>Честно не понял, почему они сделали Selenide именно так, <br/>но подход имеет право на жизнь.</blockquote>
+          </section>
+          <section>
+            <h2>Проблемы UI-<u>тестеров</u></h2>
+            <span class="big">
+              <ul>
+                <li>Чёртов Ajax</li>
+                <li class="fragment">Отчёты / Скриншоты</li>
+                <li class="fragment">BDD</li>
+                <li class="fragment">Степы</li>
+                <li class="fragment">Page Objects</li>
+                <li class="fragment">Параллелизация</li>
+              </ul>
+            </span>
+
+            <h3 class="fragment rotate45 bottom right">Как всё <br/>сложно!</h3>
+          </section>
+        </section>
+
+
+        <section>
+          <section>
+            <h2>Особенности Selenide</h2>
+            <div class="medium-space right">
+              <ul>
+                <li class="fragment">Библиотека (не фреймворк)</li>
+                <li class="fragment">Быстрый старт</li>
+                <li class="fragment">Совместим с: JUnit, TestNG, ... - всё что угодно!</li>
+                <li class="fragment">Совместим с: Java, Scala, Groovy, ... - любые JVM</li>
+                <li class="fragment">Dog Food</li>
+                <li class="fragment">Максимум пользы при минимуме кода</li>
+                <li class="fragment">Используется в реальных проектах</li>
+                <li class="fragment">Решает основные проблемы UI тестов</li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <h2>История Selenide</h2>
+            <div class="medium-space right">
+              <ul>
+                <li class="fragment">Попробовали Selenium WebDriver</li>
+                <li class="fragment">Нафигачили вспомогательных методов</li>
+                <li class="fragment">Вынесли в open-source</li>
+                <li class="fragment">1.5 года шлифовали в реальных проектах</li>
+                <li class="fragment">И вот мы на Selenium Camp!</li>
+              </ul>
+            </div>
+          </section>
+        </section>
+
+
+
+        <section>
+          <section>
+            <h1>Selenide</h1>
+            <h2>vs</h2>
+            <h1>Selenium WebDriver</h1>
+          </section>
+          <section>
+            <h2>WebDriver</h2>
+<pre class="medium-space"><code class="language-java">
+DesiredCapabilities cap = htmlUnit();
+cap.setCapability(INVALIDSELECTIONERROR, true);
+cap.setCapability(INVALIDXPATHERROR, false);
+cap.setJavascriptEnabled(true);
+WebDriver driver = new HtmlUnitDriver(cap);
+</code></pre>
+            <div class="fragment bottom right selenide-logo">
+<pre class="medium-space"><code class="language-java">open("/my-application/login");
+</code></pre>
+            </div>
+
+            <div class="bottom left" style="left: -150px;">
+              <ul>
+                <li class="fragment">firefox</li>
+                <li class="fragment green">chrome</li>
+                <li class="fragment blue">htmlunit</li>
+                <li class="fragment blue">phantomjs</li>
+                <li class="fragment red">ie</li>
+                <li class="fragment red">opera</li>
+              </ul>
+            </div>
+          </section>
+          <section>
+            <h2>Find element</h2>
+<pre class="medium-space"><code class="language-java">
+WebElement customer =
+  driver.findElement(By.id("customerContainer"));
+</code></pre>
+            <div class="fragment bottom right selenide-logo">
+<pre class="medium-space"><code class="language-java">WebElement customer = $("#customerContainer");
+</code></pre>
+            </div>
+          </section>
+          <section>
+            <h2>Text check</h2>
+<pre class="medium-space"><code class="language-java">
+assertEquals("Customer profile",
+  driver.findElement(
+    By.id("customerContainer")).getText());
+</code></pre>
+            <div class="fragment bottom right selenide-logo">
+<pre class="medium-space"><code class="language-java">
+$("#customerContainer").shouldHave(
+  text("Customer profile"),
+  text("John"),
+  cssClass("active-profile"));
+</code></pre>
+            </div>
+          </section>
+          <section>
+            <h2>Ajax support</h2>
+<pre class="smaller"><code class="language-java">
+FluentWait&lt;By> fluentWait = new FluentWait&lt;By>(By.tagName("TEXTAREA"));
+fluentWait.pollingEvery(100, TimeUnit.MILLISECONDS);
+fluentWait.withTimeout(1000, TimeUnit.MILLISECONDS);
+fluentWait.until(new Predicate&lt;By>() {
+  public boolean apply(By by) {
+    try {
+      return browser.findElement(by).isDisplayed();
+    } catch (NoSuchElementException ex) {
+      return false;
+    }
+  }
+});
+assertEquals("John", browser.findElement(By.tagName("TEXTAREA")).getAttribute("value"));
+</code></pre>
+          </section>
+          <section>
+            <h2>Ajax support</h2>
+            <div class="selenide-logo">
+<pre class="medium-space"><code class="language-java">
+$("TEXTAREA").shouldHave(value("John"));
+</code></pre>
+            </div>
+          </section>
+          <section>
+            <h2>Page Objects extension</h2>
+<pre class="medium-space"><code class="language-java">
+public class SignupPage {
+  @FindBy(name = "email")
+  public SelenideElement email;
+  @FindBy(name = "password")
+  public SelenideElement password;
+  @FindBy(id = "signup")
+  private SelenideElement signup;
+
+  public DashboardPage loginValid() {
+    signup.click();
+    return page(DashboardPage.class);
+  }
+}
+</code></pre>
+          </section>
+          <section>
+            <h2>Page Objects extension</h2>
+<pre class="small small-space"><code class="language-java">
+@Test
+public void afterSignupUserLandsOnDashboard() {
+open("/signup");
+
+SignupPage signupPage = page(SignupPage.class);
+signupPage.email.shouldHave(value(""))
+  .val("existing@email.com");
+signupPage.password.shouldHave(value(""))
+  .val("validPassword");
+
+DashboardPage dashboardPage =
+  signupPage.signupValid();
+// do some dashboard page assertions
+}
+</code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Демо</h2>
+            <span class="big">
+              <a href="http://localhost:8081/hangman" target="_blank">
+                <img src="img/fast_and_furious.jpg"/>
+              </a>
+            </span>
+          </section>
+          <section>
+            <h1>Листинг карт</h1>
+            <ul>
+              <li>Пользователь видит список добавленных карт сторонних банков (номер, имя держателя, состояние)</li>
+            </ul>
+          </section>
+          <section>
+            <h1>Удаление карты</h1>
+            <ul>
+              <li>Пользователь может удалить карту стороннего банка</li>
+            </ul>
+          </section>
+          <section>
+            <h1>Активация карты</h1>
+            <ul>
+              <li>Чтобы иметь возможность оплатить услуги пользователь должен активировать карту, введя зарезервированную сумму</li>
+              <li>В целях безопасности в случае неверного ввода зарезервированной суммы карта удаляется</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Наш подход к написанию UI тестов</h2>
+            <ul>
+              <li class="fragment">
+                Стремимся UI тесты делать быстрыми, для этого
+                <ul>
+                  <li class="fragment">используем in-memory базу данных</li>
+                  <li class="fragment">заглушаем реальные сервисы, если их не можем контроллировать</li>
+                  <li class="fragment">используем упрощённый логин</li>
+                  <li class="fragment">используем сессию повторно</li>
+                </ul>
+              </li>
+              <li class="fragment">
+                Но не забываем о стабильности тестов
+                <ul>
+                  <li class="fragment">тесты не зависят друг от друга</li>
+                </ul>
+              </li>
+              <li class="fragment">UI тесты являются частью билда</li>
+            </ul>
+          </section>
+        </section>
+
+
+
+				<section>
+          <h2>Спасибо!</h2>
+          <dl style="margin-top: 100px;">
+            <dt>Вопросы</dt>
+            <dt>Ответы</dt>
+            <dt>Комментарии</dt>
+          </dl>
+          <span style="position: absolute; left: 0; bottom: 0;">
+            <img src="img/logo-web.png" width="260px"/>
+          </span>
+
+<!--
+          <span class="company">
+            <a href="http://asolntsev.livejournal.com/">asolntsev.livejournal.com/</a><br/>
+            andrei.solntsev@gmail.com<br/>
+            vadger@gmail.com<br/>
+          </span>
+-->
+          <span class="company">
+            <img src="img/selenide.png" width="100"/><br/>
+            <a href="http://selenide.org/">selenide.org</a>
+          </span>
+				</section>
+			</div>
+
+			<!-- The navigational controls UI -->
+			<aside class="controls">
+				<a class="left" href="#">&#x25C4;</a>
+				<a class="right" href="#">&#x25BA;</a>
+				<a class="up" href="#">&#x25B2;</a>
+				<a class="down" href="#">&#x25BC;</a>
+			</aside>
+
+			<!-- Presentation progress bar -->
+			<div class="progress"><span></span></div>
+			
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+			
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/linear(2d)
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/highlight.js', async: true, callback: function() { window.hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'lib/js/showdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/js/data-markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'socket.io/socket.io.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } },
+					{ src: 'plugin/speakernotes/client.js', async: true, condition: function() { return window.location.host === 'localhost:1947'; } }
+				]
+			});
+			
+		</script>
+
+	</body>
+</html>
