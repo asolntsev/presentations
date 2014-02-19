@@ -31,10 +31,18 @@
       }
 
       .selenide-logo {
-        background-image: url('img/selenide-logo-100x100.png');
+        background-image: url('img/selenide-logo-big.png');
         background-repeat: no-repeat;
         background-position: left;
-        padding-left: 100px;
+        padding-left: 155px;
+      }
+
+      .selenium-logo {
+        background-image: url('img/selenium-logo.png');
+        background-size: 128px;
+        background-repeat: no-repeat;
+        background-position: left;
+        padding-left: 155px;
       }
 
       .center {
@@ -231,9 +239,9 @@
 					<h2>Повестка дня</h2>
           <ul class="big">
             <li>Selenide год назад</li>
-            <li>Selenium Camp 2013</li>
-            <li>Новинки в Selenide от разработчиков</li>
-            <li>Новинки в Selenide от тестировщиков</li>
+            <li class="fragment">Selenium Camp 2013</li>
+            <li class="fragment">Новинки в Selenide от разработчиков</li>
+            <li class="fragment">Новинки в Selenide от тестировщиков</li>
           </ul>
 				</section>
 
@@ -329,7 +337,7 @@ public void userCanLogin() {
             <h2>Проблемы UI-<u>тестеров</u></h2>
             <span class="big">
               <ul>
-                <li>Чёртов Ajax</li>
+                <li style="color: gray;">Чёртов Ajax</li>
                 <li class="fragment">Отчёты / Скриншоты</li>
                 <li class="fragment">BDD</li>
                 <li class="fragment">Степы</li>
@@ -342,236 +350,478 @@ public void userCanLogin() {
           </section>
         </section>
 
-
         <section>
           <section>
-            <h2>Особенности Selenide</h2>
-            <div class="medium-space right">
+            <h2>План</h2>
+
+              <span class="big">
               <ul>
-                <li class="fragment">Библиотека (не фреймворк)</li>
-                <li class="fragment">Быстрый старт</li>
-                <li class="fragment">Совместим с: JUnit, TestNG, ... - всё что угодно!</li>
-                <li class="fragment">Совместим с: Java, Scala, Groovy, ... - любые JVM</li>
-                <li class="fragment">Dog Food</li>
-                <li class="fragment">Максимум пользы при минимуме кода</li>
-                <li class="fragment">Используется в реальных проектах</li>
-                <li class="fragment">Решает основные проблемы UI тестов</li>
+                <li class="fragment">Сайт на двух языках - ru.selenide.org</li>
+                <li class="fragment">twitter.com/jselenide</li>
+                <li class="fragment">Опубликловал javadoc</li>
               </ul>
-            </div>
-          </section>
-          <section>
-            <h2>История Selenide</h2>
-            <div class="medium-space right">
-              <ul>
-                <li class="fragment">Попробовали Selenium WebDriver</li>
-                <li class="fragment">Нафигачили вспомогательных методов</li>
-                <li class="fragment">Вынесли в open-source</li>
-                <li class="fragment">1.5 года шлифовали в реальных проектах</li>
-                <li class="fragment">И вот мы на Selenium Camp!</li>
-              </ul>
-            </div>
-          </section>
-        </section>
-
-
-
-        <section>
-          <section>
-            <h1>Selenide</h1>
-            <h2>vs</h2>
-            <h1>Selenium WebDriver</h1>
-          </section>
-          <section>
-            <h2>WebDriver</h2>
-<pre class="medium-space"><code class="language-java">
-DesiredCapabilities cap = htmlUnit();
-cap.setCapability(INVALIDSELECTIONERROR, true);
-cap.setCapability(INVALIDXPATHERROR, false);
-cap.setJavascriptEnabled(true);
-WebDriver driver = new HtmlUnitDriver(cap);
-</code></pre>
-            <div class="fragment bottom right selenide-logo">
-<pre class="medium-space"><code class="language-java">open("/my-application/login");
-</code></pre>
-            </div>
-
-            <div class="bottom left" style="left: -150px;">
-              <ul>
-                <li class="fragment">firefox</li>
-                <li class="fragment green">chrome</li>
-                <li class="fragment blue">htmlunit</li>
-                <li class="fragment blue">phantomjs</li>
-                <li class="fragment red">ie</li>
-                <li class="fragment red">opera</li>
-              </ul>
-            </div>
-          </section>
-          <section>
-            <h2>Find element</h2>
-<pre class="medium-space"><code class="language-java">
-WebElement customer =
-  driver.findElement(By.id("customerContainer"));
-</code></pre>
-            <div class="fragment bottom right selenide-logo">
-<pre class="medium-space"><code class="language-java">WebElement customer = $("#customerContainer");
-</code></pre>
-            </div>
-          </section>
-          <section>
-            <h2>Text check</h2>
-<pre class="medium-space"><code class="language-java">
-assertEquals("Customer profile",
-  driver.findElement(
-    By.id("customerContainer")).getText());
-</code></pre>
-            <div class="fragment bottom right selenide-logo">
-<pre class="medium-space"><code class="language-java">
-$("#customerContainer").shouldHave(
-  text("Customer profile"),
-  text("John"),
-  cssClass("active-profile"));
-</code></pre>
-            </div>
-          </section>
-          <section>
-            <h2>Ajax support</h2>
-<pre class="smaller"><code class="language-java">
-FluentWait&lt;By> fluentWait = new FluentWait&lt;By>(By.tagName("TEXTAREA"));
-fluentWait.pollingEvery(100, TimeUnit.MILLISECONDS);
-fluentWait.withTimeout(1000, TimeUnit.MILLISECONDS);
-fluentWait.until(new Predicate&lt;By>() {
-  public boolean apply(By by) {
-    try {
-      return browser.findElement(by).isDisplayed();
-    } catch (NoSuchElementException ex) {
-      return false;
-    }
-  }
-});
-assertEquals("John", browser.findElement(By.tagName("TEXTAREA")).getAttribute("value"));
-</code></pre>
-          </section>
-          <section>
-            <h2>Ajax support</h2>
-            <div class="selenide-logo">
-<pre class="medium-space"><code class="language-java">
-$("TEXTAREA").shouldHave(value("John"));
-</code></pre>
-            </div>
-          </section>
-          <section>
-            <h2>Page Objects extension</h2>
-<pre class="medium-space"><code class="language-java">
-public class SignupPage {
-  @FindBy(name = "email")
-  public SelenideElement email;
-  @FindBy(name = "password")
-  public SelenideElement password;
-  @FindBy(id = "signup")
-  private SelenideElement signup;
-
-  public DashboardPage loginValid() {
-    signup.click();
-    return page(DashboardPage.class);
-  }
-}
-</code></pre>
-          </section>
-          <section>
-            <h2>Page Objects extension</h2>
-<pre class="small small-space"><code class="language-java">
-@Test
-public void afterSignupUserLandsOnDashboard() {
-open("/signup");
-
-SignupPage signupPage = page(SignupPage.class);
-signupPage.email.shouldHave(value(""))
-  .val("existing@email.com");
-signupPage.password.shouldHave(value(""))
-  .val("validPassword");
-
-DashboardPage dashboardPage =
-  signupPage.signupValid();
-// do some dashboard page assertions
-}
-</code></pre>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h2>Демо</h2>
-            <span class="big">
-              <a href="http://localhost:8081/hangman" target="_blank">
-                <img src="img/fast_and_furious.jpg"/>
-              </a>
             </span>
           </section>
+        </section>
+
+        <section>
           <section>
-            <h1>Листинг карт</h1>
-            <ul>
-              <li>Пользователь видит список добавленных карт сторонних банков (номер, имя держателя, состояние)</li>
-            </ul>
+            <div class="big">
+              <h2>Новинки</h2>
+              <h4>от разработчиков</h4>
+            </div>
+          </section>
+
+          <section>
+            <h3>FluentWait</h3>
+            <div>
+              <pre class="small-space fragment selenide-logo">
+<code class="language-java">
+  <span><b>Wait()</b>.until(
+    presenceOfAllElementsLocatedBy(
+      By.tagName("h1")));</span>
+</code></pre>
+              <pre class="medium-space fragment selenium-logo">
+<code class="language-java">
+  <span>new WebDriverWait(driver, 100).until(
+    presenceOfAllElementsLocatedBy(
+      By.tagName("h1")));</span>
+</code></pre>
+            </div>
+          </section>
+
+          <section>
+            <h3>Actions</h3>
+            <div>
+              <pre class="small-space fragment selenide-logo">
+<code class="language-java">
+  <span><b>actions()</b>
+    .click($(By.name("rememberMe")))
+    .build()
+    .perform();</span>
+</code></pre>
+              <pre class="medium-space fragment selenium-logo">
+<code class="language-java">
+  <span>Actions builder = new Actions(driver);
+
+   Action clickMe = builder.click(
+      $(By.name("rememberMe"))).build();
+
+   clickMe.perform();</span>
+</code></pre>
+            </div>
+          </section>
+
+          <section>
+            <h3>WebDriver Event Listener</h3>
+            <div>
+              <pre class="small-space fragment selenide-logo">
+<code class="language-java">
+  static {
+    WebDriverRunner.<u>addListener</u>(
+      <span class="fragment">new AbstractWebDriverEventListener() {
+        <span class="fragment">
+        public void <u>beforeClickOn</u>(WebElement element, WebDriver driver) {
+
+          LOG.info("CLICKING: " + element);
+          sleep(50);
+        }
+        </span>
+   }</span>);
+}
+</code></pre>
+            </div>
+          </section>
+
+          <section>
+            <h3>Page Objects</h3>
+            <div>
+              <pre class="small-space">
+<code class="language-java">
+import static
+  com.codeborne.selenide.Selenide.open;
+
+<span class="fragment">open("http://github.com/search");</span>
+</code></pre>
+              <pre class="medium-space fragment selenide-logo">
+<code class="language-java">
+SearchPage searchPage =
+  open("http://github.com/search",
+       SearchPage.class);
+</code></pre>
+            </div>
+          </section>
+
+          <section>
+            <h3>Page Objects</h3>
+            <div>
+              <pre class="small-space">
+<code class="language-java">
+public class SearchPage {
+  <span class="fragment">
+  public void search(String query) {
+    $("#search_form")
+      .find(By.name("q"))
+      .setValue(query)
+      .pressEnter();
+  }</span>
+}
+</code></pre>
+            </div>
           </section>
           <section>
-            <h1>Удаление карты</h1>
-            <ul>
-              <li>Пользователь может удалить карту стороннего банка</li>
-            </ul>
+            <h3>Page Objects</h3>
+            <div>
+              <pre class="small-space">
+<code class="language-java">
+import static com.codeborne.selenide.Selenide.page
+
+public class SearchPage {
+  <span class="fragment">
+  public UserProfilePage userProfile(String user) {
+    usersResults()
+      .find(By.linkText(user))
+      .click();
+
+    <span class="fragment">return <u><b>page</b>(UserProfilePage.class)</u>;</span>
+  }</span>
+}
+</code></pre>
+            </div>
           </section>
           <section>
-            <h1>Активация карты</h1>
-            <ul>
-              <li>Чтобы иметь возможность оплатить услуги пользователь должен активировать карту, введя зарезервированную сумму</li>
-              <li>В целях безопасности в случае неверного ввода зарезервированной суммы карта удаляется</li>
-            </ul>
-          </section>
-          <section>
-            <h2>Наш подход к написанию UI тестов</h2>
-            <ul>
-              <li class="fragment">
-                Стремимся UI тесты делать быстрыми, для этого
-                <ul>
-                  <li class="fragment">используем in-memory базу данных</li>
-                  <li class="fragment">заглушаем реальные сервисы, если их не можем контроллировать</li>
-                  <li class="fragment">используем упрощённый логин</li>
-                  <li class="fragment">используем сессию повторно</li>
-                </ul>
-              </li>
-              <li class="fragment">
-                Но не забываем о стабильности тестов
-                <ul>
-                  <li class="fragment">тесты не зависят друг от друга</li>
-                </ul>
-              </li>
-              <li class="fragment">UI тесты являются частью билда</li>
-            </ul>
+            <h3>Page Objects</h3>
+            <img src="img/tweet_selenide_page_objects.png" width="950"/>
           </section>
         </section>
 
 
+
+        <section>
+          <section>
+            <div class="big">
+              <h2>Новинки</h2>
+              <h4>от тестировщиков</h4>
+            </div>
+          </section>
+
+          <section>
+            <h3>Свой WebDriver</h3>
+            <pre class="small-space fragment">
+<code class="language-java">
+  WebDriver myDriver = new SomeWebDriver();
+  myDriver.set...  // 100500 настроек
+</code></pre>
+            <pre class="medium-space fragment selenide-logo">
+<code class="language-java">
+static {
+  WebDriverRunner.setWebDriver(myDriver);
+}
+</code></pre>
+          </section>
+
+          <section>
+            <h3>Свой WebDriver</h3>
+            <pre class="small-space fragment">
+<code class="language-java">
+  mvn -Dbrowser=com.my.MyDriverProvider test
+</code></pre>
+            <pre class="small-space fragment">
+<code class="language-java">
+class CustomFirefoxDriverProvider
+  implements WebDriverProvider {
+  <span class="fragment">
+  public WebDriver createDriver() {
+    SomeWebDriver myDriver = new SomeWebDriver();
+    myDriver.set...  // 100500 настроек
+    return driver;
+  }
+  </span>
+}
+</code></pre>
+          </section>
+
+          <section>
+            <h3>Параллельные тесты</h3>
+           <ul class="big">
+              <li class="fragment">WebDriver - нестатический</li>
+              <li class="fragment">Но можно проще!</li>
+            </ul>
+          </section>
+          <section>
+            <h3>Параллельные тесты</h3>
+<pre class="small-space fragment selenide-logo">
+  build.gradle:
+<code class="language-java">
+test {
+  systemProperties['browser'] = 'chrome'
+  systemProperties['webdriver.chrome.driver'] =
+    '/usr/bin/chromedriver'
+
+  <span class="fragment">maxParallelForks = 3</span>
+}
+</code></pre>
+            <ul class="medium-space">
+              <li class="fragment">Запускает 3 процесса</li>
+              <li class="fragment">Это проще и надёжнее!</li>
+            </ul>
+
+          </section>
+          <section>
+            <h3>Поддержка RemoteWebDriver</h3>
+<pre class="medium-space fragment">
+<code class="language-java">
+  mvn -Dremote=http://localhost:4444/wd/hub test
+
+</code></pre>
+
+            <div><ul class="medium-space">
+              <li class="fragment">скриншоты (Augmenter)</li>
+              <li class="fragment">зависимости (cglib)</li>
+            </ul></div>
+
+            <div class="medium-space fragment">В большинстве случаев RemoteWebDriver <u>не нужен</u>!</div>
+          </section>
+
+          <section>
+            <h3>Сообщения об ошибках</h3>
+            <div class="fragment">1. Текст не совпадает</div>
+<pre class="fragment medium-space">
+<code class="language-html">Element <u>should have text</u> 'Hello' {By.id: results}
+Element: '&lt;div id=results&gt;Goodbye&lt;/div&gt;'
+Timeout: 2.500 s.
+</code></pre>
+
+            <div class="fragment medium-space">2. Текст совпадает (а не должен)</div>
+<pre class="fragment">
+<code class="language-html">Element <u>should not have text</u> 'Bob' {By.className: firstname}
+Element: '&lt;td class=firstname&gt;Bob&lt;/td&gt;'
+Timeout: 4 s.
+</code></pre>
+          </section>
+
+          <section>
+            <h3>Сообщения об ошибках</h3>
+            <div class="fragment">3. Элемент не найден</div>
+<pre class="fragment medium-space">
+<code class="language-html">Element <u>not found</u> {By.selector: #results}
+Expected: CSS class 'active'
+Timeout: 4 s.
+</code></pre>
+          </section>
+
+          <section>
+            <h3>Таймауты</h3>
+<pre class="fragment">
+<code class="language-java">$("#results").shouldHave(cssClass("active"));
+</code></pre>
+            <ul class="medium-space" style="width: 85%">
+              <li class="fragment">Таймаут по умолчанию 4000 миллисекунд.</li>
+              <li class="fragment">Можно задать -Dselenide.timeout=7000</li>
+              <li class="fragment big">Какие могут быть проблемы?</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Таймауты</h3>
+
+            <ul class="medium-space" style="width: 85%">
+              <li class="fragment">Кто-то задал в секундах -Dselenide.timeout=7</li>
+            </ul>
+
+            <pre class="fragment small-space">
+<code class="language-html">Element <u>should have text</u> 'Hello' {By.id: results}
+Element: '&lt;div id=results&gt;Goodbye&lt;/div&gt;'
+<span class="red">Timeout: 0.</span>
+</code></pre>
+
+            <ul class="medium-space" style="width: 85%">
+              <li class="fragment">Исправил: меньше 1000 нельзя</li>
+              <li class="fragment">Меньше 4000 вообще не имеет смысла</li>
+              <li class="fragment medium-space">Какие могут быть проблемы?</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Таймауты</h3>
+
+            <ul class="medium-space" style="width: 85%">
+              <li class="fragment">Кто-то задал нулевой: -Dselenide.timeout=0</li>
+              <li class="fragment">Зачем???</li>
+              <li class="fragment">Для какого-то LoadableComponent</li>
+            </ul>
+
+            <ul class="medium-space" style="width: 85%">
+              <li class="fragment">Исправил: можно любой таймаут
+                <ul>
+                  <li>0 -> "0"</li>
+                  <li>150 -> "150 ms"</li>
+                  <li>2000 -> "2 s"</li>
+                  <li>9500 -> "9.500 s"</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Новые функции</h3>
+
+            <ul class="big" style="width: 85%">
+              <li class="fragment">$.scrollTo()</li>
+              <li class="fragment">$.contextClick()</li>
+              <li class="fragment">$.download()</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>$.download</h3>
+            <a href="http://goo.gl/zCoqiQ">http://goo.gl/zCoqiQ</a>
+            <img class="fragment" src="img/file_download_ie.png" width="1000"/>
+            <div class="centered-block fragment" style="top: 300px; margin-left: 50px; ">
+              <pre class="medium-space">
+<code class="language-java">
+File pdf = $("#download_button").download();
+
+</code></pre>
+            </div>
+          </section>
+
+          <section>
+            <h3>EasyB</h3>
+            <div class="centered-block fragment">
+              <pre>
+<code class="language-java">
+$("#download_button").<span class="red">shouldBe</span>(visible);
+$("#download_button").<span class="red">shouldHave</span>(text("Tere"));
+
+</code></pre>
+
+              <ul class="medium" style="width: 85%">
+                <li class="fragment">Какие могут быть проблемы?</li>
+                <li class="fragment">EasyB</li>
+                <li class="fragment">Всем объектам по shouldHave и shouldBe</li>
+              </ul>
+
+              <pre class="fragment">
+<code class="language-java">
+$("#download_button").should(<span class="red">be</span>(visible));
+$("#download_button").should(<span class="red">have</span>(text("Tere")));
+
+</code></pre>
+            </div>
+          </section>
+
+          <section>
+            <h3>Поддержка TestNG</h3>
+
+            <div>Скриншоты</div>
+            <div class="fragment medium-space">
+              <pre>
+<code class="language-java">
+import com.codeborne.selenide.testng.ScreenShooter
+
+@Listeners({ ScreenShooter.class})
+public class MyTest { ... }
+</code></pre>
+            </div>
+
+            <div class="fragment medium-space">Скриншот после каждого упавшего теста</div>
+          </section>
+
+          <section>
+            <h3>Поддержка TestNG</h3>
+            <div>Браузер</div>
+            <div class="fragment medium-space">
+              <pre>
+<code class="language-java">
+import com.codeborne.selenide.testng.ScreenShooter
+
+@Listeners({ ScreenShooter.class, BrowserPerTest})
+public class MyTest { ... }
+</code></pre>
+            </div>
+
+            <div class="fragment medium-space">Либо BrowserPerClass</div>
+          </section>
+
+          <section>
+            <h3>Свои условия</h3>
+            <div class="fragment">
+              <pre>
+<code class="language-java">public static Condition <span class="red">css</span>(
+  String propertyName, String propertyValue) {
+  <span class="fragment">
+    return new Condition("css") {
+      <span class="fragment">
+      public boolean apply(WebElement element) {
+        return propertyValue.equals(
+          element.getCssValue(propertyName));
+      }</span>
+    };</span>
+}
+</code></pre>
+              <br/>
+              <pre class="fragment">
+<code class="language-java">$("h1").shouldHave(<span class="red">css</span>("font-size", "16px"));
+</code></pre>
+            </div>
+            <h3 class="fragment rotate45 bottom right">Читабельность!</h3>
+          </section>
+          <section>
+            <h3>Стопицот условий</h3>
+            <div>Объявляем:</div>
+            <div class="fragment">
+                <pre>
+<code class="language-java">Condition saved = <span class="red">and</span>(
+  saveButtonDisabled,
+  withNoLoadingDialogVisible,
+  withSuccessMessageDisplayed);
+</code></pre>
+            </div>
+            <br/>
+            <div class="fragment"><span>Используем:</span></div>
+            <br/>
+            <pre class="fragment">
+<code class="language-java">Page.shouldBe(<span class="red">saved</span>);
+</code></pre>
+            <br/>
+            <div class="fragment">Для сложных UI компонентов</div>
+          </section>
+          <section>
+            <h3>Баги</h3>
+            <div>Скриншоты:</div>
+            <div class="fragment">
+                <pre>
+<code class="language-java">@Rule
+public ScreenShooter on = failedTests();
+</code></pre>
+            </div>
+
+            <ul class="medium" style="width: 85%">
+              <li class="fragment">Какие могут быть проблемы?</li>
+              <li class="fragment">Параметризированные тесты!</li>
+              <li class="fragment">Имя скриншота = имя теста</li>
+              <li class="fragment">Пришлось добавлять циферки</li>
+            </ul>
+
+            <div class="medium-space fragment">Параметризированные UI-тесты - это неправильно</div>
+          </section>
+        </section>
 
 				<section>
           <h2>Спасибо!</h2>
           <dl style="margin-top: 100px;">
-            <dt>Вопросы</dt>
-            <dt>Ответы</dt>
-            <dt>Комментарии</dt>
+            <img src="img/selenide-logo-big.png" width="100"/><br/>
+            <a href="http://selenide.org/">selenide.org</a><br/>
           </dl>
           <span style="position: absolute; left: 0; bottom: 0;">
             <img src="img/logo-web.png" width="260px"/>
           </span>
 
-<!--
-          <span class="company">
-            <a href="http://asolntsev.livejournal.com/">asolntsev.livejournal.com/</a><br/>
-            andrei.solntsev@gmail.com<br/>
-            vadger@gmail.com<br/>
-          </span>
--->
-          <span class="company">
-            <img src="img/selenide.png" width="100"/><br/>
-            <a href="http://selenide.org/">selenide.org</a>
+          <span class="company right">
+            <a href="http://twitter.com/asolntsev/">twitter.com/asolntsev</a><br/>
+            <a href="http://asolntsev.livejournal.com/">asolntsev.livejournal.com</a><br/>
+            andrei.solntsev@gmail.com
           </span>
 				</section>
 			</div>
