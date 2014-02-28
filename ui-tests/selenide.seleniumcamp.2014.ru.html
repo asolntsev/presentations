@@ -230,7 +230,7 @@
 
             <div style="text-align: right; position: absolute; right: 50px; bottom: 5px;" class="fragment">
               <img src="img/selenide-logo-big.png" width="100px"/><br/>
-              <span class="big">Selenide.org</span><br/>author
+              <span class="big">Selenide.org</span><br/>автор
             </div>
           </section>
         </section>
@@ -241,7 +241,7 @@
             <li>Selenide год назад</li>
             <li class="fragment">Selenium Camp 2013</li>
             <li class="fragment">Новинки в Selenide от разработчиков</li>
-            <li class="fragment">Новинки в Selenide от тестировщиков</li>
+            <li class="fragment">Новинки от/для тестировщиков</li>
           </ul>
 				</section>
 
@@ -358,7 +358,8 @@ public void userCanLogin() {
               <ul>
                 <li class="fragment">Сайт на двух языках - ru.selenide.org</li>
                 <li class="fragment">twitter.com/jselenide</li>
-                <li class="fragment">Опубликловал javadoc</li>
+                <li class="fragment">Опубликловать javadoc - http://selenide.org/javadoc.html</li>
+                <li class="fragment">Гуглогруппы на двух языках - selenide и selenide-ru</li>
               </ul>
             </span>
           </section>
@@ -474,16 +475,17 @@ public class SearchPage {
             <div>
               <pre class="small-space">
 <code class="language-java">
-import static com.codeborne.selenide.Selenide.page
+import static
+  com.codeborne.selenide.Selenide.page
 
 public class SearchPage {
   <span class="fragment">
-  public UserProfilePage userProfile(String user) {
+  public UserPage userProfile(String user) {
     usersResults()
       .find(By.linkText(user))
       .click();
 
-    <span class="fragment">return <u><b>page</b>(UserProfilePage.class)</u>;</span>
+    <span class="fragment">return <u><b>page</b>(UserPage.class)</u>;</span>
   }</span>
 }
 </code></pre>
@@ -501,7 +503,7 @@ public class SearchPage {
           <section>
             <div class="big">
               <h2>Новинки</h2>
-              <h4>от тестировщиков</h4>
+              <h4>от/для тестировщиков</h4>
             </div>
           </section>
 
@@ -518,6 +520,7 @@ static {
   WebDriverRunner.setWebDriver(myDriver);
 }
 </code></pre>
+            <div class="fragment medium-space">Какие могут быть проблемы?</div>
           </section>
 
           <section>
@@ -528,15 +531,14 @@ static {
 </code></pre>
             <pre class="small-space fragment">
 <code class="language-java">
-class CustomFirefoxDriverProvider
+class MyDriverProvider
   implements WebDriverProvider {
   <span class="fragment">
   public WebDriver createDriver() {
-    SomeWebDriver myDriver = new SomeWebDriver();
+    SomeDriver myDriver = new SomeDriver();
     myDriver.set...  // 100500 настроек
     return driver;
-  }
-  </span>
+  }</span>
 }
 </code></pre>
           </section>
@@ -687,25 +689,25 @@ File pdf = $("#download_button").download();
           </section>
 
           <section>
-            <h3>EasyB</h3>
+            <h3 class="fragment">Конфликты</h3>
             <div class="centered-block fragment">
               <pre>
 <code class="language-java">
-$("#download_button").<span class="red">shouldBe</span>(visible);
-$("#download_button").<span class="red">shouldHave</span>(text("Tere"));
+$("#download").<span class="red">shouldBe</span>(visible);
+$("#download").<span class="red">shouldHave</span>(text("Tere"));
 
 </code></pre>
 
               <ul class="medium" style="width: 85%">
                 <li class="fragment">Какие могут быть проблемы?</li>
-                <li class="fragment">EasyB</li>
+                <li class="fragment red">EasyB!</li>
                 <li class="fragment">Всем объектам по shouldHave и shouldBe</li>
               </ul>
 
               <pre class="fragment">
 <code class="language-java">
-$("#download_button").should(<span class="red">be</span>(visible));
-$("#download_button").should(<span class="red">have</span>(text("Tere")));
+$("#download").should(<span class="red">be</span>(visible));
+$("#download").should(<span class="red">have</span>(text("Tere")));
 
 </code></pre>
             </div>
@@ -718,7 +720,8 @@ $("#download_button").should(<span class="red">have</span>(text("Tere")));
             <div class="fragment medium-space">
               <pre>
 <code class="language-java">
-import com.codeborne.selenide.testng.ScreenShooter
+import
+  com.codeborne.selenide.testng.ScreenShooter
 
 @Listeners({ ScreenShooter.class})
 public class MyTest { ... }
@@ -734,9 +737,10 @@ public class MyTest { ... }
             <div class="fragment medium-space">
               <pre>
 <code class="language-java">
-import com.codeborne.selenide.testng.ScreenShooter
+import
+  com.codeborne.selenide.testng.BrowserPerTest
 
-@Listeners({ ScreenShooter.class, BrowserPerTest})
+@Listeners({ BrowserPerTest})
 public class MyTest { ... }
 </code></pre>
             </div>
@@ -799,7 +803,7 @@ public ScreenShooter on = failedTests();
 
             <ul class="medium" style="width: 85%">
               <li class="fragment">Какие могут быть проблемы?</li>
-              <li class="fragment">Параметризированные тесты!</li>
+              <li class="fragment red">Параметризированные тесты!</li>
               <li class="fragment">Имя скриншота = имя теста</li>
               <li class="fragment">Пришлось добавлять циферки</li>
             </ul>
@@ -808,6 +812,48 @@ public ScreenShooter on = failedTests();
           </section>
         </section>
 
+        <section>
+          <section>
+            <h2>Статистика</h2>
+            <img src="img/selenide_downloads.unique_ips.png" width="900px"/>
+          </section>
+          <section>
+            <h2>Статистика</h2>
+
+            <h6 class="medium-space">Github issues:</h6>
+
+            <ul>
+              <li>Всего - 101</li>
+              <li>Закрыто - 82</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Публикации</h2>
+
+            <ul>
+              <li class="fragment">RebelLabs, <a href="http://zeroturnaround.com/rebellabs/if-you-use-selenium-for-browser-based-ui-acceptance-testing-you-might-like-selenide/">You Might Like Selenide</a></li>
+              <li class="fragment">Selen ConfeT&QA, <a href="http://confetqa.ru/rezultaty-onlajn-konferencii-selen-confetqa/">Selenide: лаконичные и стабильные UI тесты на Java</a></li>
+              <li class="fragment">Glen Smith, <a href="http://blogs.bytecode.com.au/glen/2014/02/13/selenide-in-five-minutes-a-lightning-talk.html">Selenide за 5 минут</a></li>
+              <li class="fragment">Журнал Methods&Tools: <a href="http://www.methodsandtools.com/tools/selenide.php">Selenide - Concise UI Tests in Java</a></li>
+              <li class="fragment">
+                <a href="http://selenide.org/2013/08/29/selenide-harlem-shake/">Selenide HarlemShake</a>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h3>Клиенты</h3>
+            <img src="http://selenide.org/images/tieto.png" width="100px"/>
+            <img src="http://selenide.org/images/bellwood-logo.png"/>
+            <img src="http://selenide.org/images/logo-zt.png"/>
+            <img src="http://selenide.org/images/bspb_logo.jpg"/>
+            <img src="img/ubrr-logo.jpg" style="width: 150px;"/>
+            <img src="http://selenide.org/images/ee_logo.png" style="background-color: white;"/>
+            <img src="http://selenide.org/images/proekspert_logo.png" width="200px"/>
+            <img src="img/logo-web.png" width="200px"/>
+            <img src="http://www.tartumaraton.ee/failid/Image/yrituse_logod/klubi_logo.jpg" width="200px"/>
+            <img src="http://selenide.org/images/regio-logo.jpg" width="200px"/>
+          </section>
+        </section>
 				<section>
           <h2>Спасибо!</h2>
           <dl style="margin-top: 100px;">
